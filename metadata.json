@@ -1,0 +1,6 @@
+{
+  "name": "Awlo Real Estate",
+  "description": "Find Your Place in Addis Ababa — Premium Residential & Commercial Properties in Ethiopia",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
