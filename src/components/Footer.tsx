@@ -14,22 +14,22 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
   };
 
   return (
-    <footer className="bg-[#0A1128] text-white pt-16 pb-12 border-t border-slate-900">
+    <footer className="bg-[#0A1128] text-white pt-16 sm:pt-20 pb-14 sm:pb-16 border-t border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           
           {/* Col 1 & 2: Brand Info */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-5 sm:space-y-6">
             <button
               onClick={() => handleNav('home')}
-              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md transition-transform hover:opacity-95 active:scale-[0.99]"
               aria-label="Awlo Real Estate"
             >
               <img
                 src="https://i.postimg.cc/tRtfTN6S/IMG-20260910-094745-843-removebg-preview-(1).png"
                 alt="Awlo Real Estate"
-                className="h-11 sm:h-12 w-auto object-contain bg-transparent"
+                className="h-[65px] sm:h-[85px] md:h-[105px] lg:h-[120px] xl:h-[132px] w-auto max-w-[280px] sm:max-w-[360px] lg:max-w-[440px] object-contain bg-transparent select-none drop-shadow-xs"
                 referrerPolicy="no-referrer"
               />
             </button>
