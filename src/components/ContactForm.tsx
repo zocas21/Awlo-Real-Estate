@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle, Building } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { SocialLinks, AWLO_CONTACT_INFO } from './SocialLinks';
 
 interface ContactFormProps {
   initialPropertyTitle?: string;
@@ -51,11 +52,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
         setSubmitted(true);
         if (onLeadSubmitted) onLeadSubmitted(data.lead);
       } else {
-        // Fallback success if API fails
         setSubmitted(true);
       }
     } catch (err) {
-      // Graceful fallback
       setSubmitted(true);
     } finally {
       setLoading(false);
@@ -63,95 +62,122 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-12 sm:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
           {/* Left Column: Office Details */}
-          <div className="lg:col-span-5 space-y-8 bg-[#0F4C3A] text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-700/20 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div className="space-y-3 relative z-10">
-              <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-400/20 px-3 py-1 rounded-full border border-amber-400/30">
-                Get in Touch
+          <div className="lg:col-span-5 bg-[#0F4C3A] text-white p-6 sm:p-8 rounded-2xl border border-emerald-900 space-y-6">
+            <div className="space-y-2">
+              <span className="text-xs font-semibold text-amber-400 uppercase tracking-wider">
+                Direct Contact
               </span>
-              <h2 className="text-3xl font-extrabold text-white tracking-tight">
-                Visit Our Addis Ababa Head Office
+              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                Awlo Real Estate Office
               </h2>
-              <p className="text-sm text-emerald-100">
-                Our sales team is ready to walk you through floor plans, legal ownership deeds, and payment options.
+              <p className="text-sm text-emerald-100/90 leading-relaxed">
+                Connect directly with our sales advisors for floor plans, site tours, and legal ownership deed inquiries.
               </p>
             </div>
 
-            <div className="space-y-6 pt-4 relative z-10 text-sm">
+            <div className="space-y-5 pt-2 text-sm">
               {/* Address */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 border border-amber-400/30 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5" />
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-emerald-900 text-amber-300 flex items-center justify-center shrink-0 border border-emerald-800">
+                  <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-white text-base">Head Office Address</h3>
-                  <p className="text-emerald-100 mt-0.5">
-                    Awlo Building, 4th Floor, Bole Road (Near Atlas Traffic Light), Addis Ababa, Ethiopia
+                  <h3 className="font-bold text-white text-sm">Office Location</h3>
+                  <p className="text-emerald-100/90 text-xs sm:text-sm mt-0.5 leading-relaxed">
+                    {AWLO_CONTACT_INFO.address}
                   </p>
                 </div>
               </div>
 
               {/* Phone */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 border border-amber-400/30 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5" />
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-emerald-900 text-amber-300 flex items-center justify-center shrink-0 border border-emerald-800">
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-white text-base">Direct Phone Lines</h3>
-                  <p className="text-emerald-100 mt-0.5">+251 91 123 4567 / +251 11 667 8900</p>
+                  <h3 className="font-bold text-white text-sm">Phone</h3>
+                  <a
+                    href={`tel:${AWLO_CONTACT_INFO.phoneClean}`}
+                    className="text-emerald-100 hover:text-amber-300 transition-colors text-xs sm:text-sm mt-0.5 block font-medium"
+                  >
+                    {AWLO_CONTACT_INFO.phone}
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-emerald-900 text-amber-300 flex items-center justify-center shrink-0 border border-emerald-800">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-white text-sm">Email</h3>
+                  <a
+                    href={`mailto:${AWLO_CONTACT_INFO.email}`}
+                    className="text-emerald-100 hover:text-amber-300 transition-colors text-xs sm:text-sm mt-0.5 block"
+                  >
+                    {AWLO_CONTACT_INFO.email}
+                  </a>
                 </div>
               </div>
 
               {/* Working Hours */}
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-300 border border-amber-400/30 flex items-center justify-center shrink-0">
-                  <Clock className="w-5 h-5" />
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-emerald-900 text-amber-300 flex items-center justify-center shrink-0 border border-emerald-800">
+                  <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-white text-base">Office Working Hours</h3>
-                  <p className="text-emerald-100 mt-0.5">Monday – Saturday: 8:30 AM – 6:00 PM EAT</p>
-                  <p className="text-xs text-amber-300 font-semibold mt-1">Closed on Sundays (Website active 24/7)</p>
+                  <h3 className="font-bold text-white text-sm">Working Hours</h3>
+                  <p className="text-emerald-100/90 text-xs sm:text-sm mt-0.5">
+                    {AWLO_CONTACT_INFO.hoursWeekday}
+                  </p>
+                  <p className="text-emerald-300/80 text-xs mt-0.5">
+                    {AWLO_CONTACT_INFO.hoursSunday}
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Direct WhatsApp CTA */}
-            <div className="pt-6 border-t border-emerald-800 relative z-10">
-              <a
-                href="https://wa.me/251911234567?text=Hello%20Awlo%20Real%20Estate,%20I%20would%20like%20to%20inquire%20about%20your%20properties."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-emerald-800 hover:bg-emerald-700 text-white py-3.5 px-4 rounded-2xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 border border-emerald-700"
-              >
-                <MessageCircle className="w-5 h-5 text-emerald-300" />
-                <span>Chat Direct on WhatsApp</span>
-              </a>
+            {/* Social and Quick Links */}
+            <div className="pt-4 border-t border-emerald-900 space-y-2.5">
+              <p className="text-xs font-semibold text-emerald-200 uppercase tracking-wider">
+                Fast Contact & Navigation
+              </p>
+              <SocialLinks variant="contact-card" />
             </div>
           </div>
 
-          {/* Right Column: Lead Form */}
-          <div className="lg:col-span-7 bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+          {/* Right Column: Inquiries Form */}
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#0F4C3A] flex items-center justify-center mx-auto">
-                  <CheckCircle className="w-10 h-10 text-[#0F4C3A]" />
+                <div className="w-14 h-14 rounded-full bg-emerald-100 text-[#0F4C3A] flex items-center justify-center mx-auto">
+                  <CheckCircle className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-900">Thank You for Contacting Awlo!</h3>
-                <p className="text-slate-600 max-w-md mx-auto text-sm">
-                  We have received your message. An Awlo senior property advisor will call you shortly at <strong className="text-slate-900">{formData.phone}</strong>.
-                </p>
+                <div className="space-y-1">
+                  <h3 className="text-xl font-bold text-slate-900">Inquiry Received</h3>
+                  <p className="text-sm text-slate-600 max-w-md mx-auto">
+                    Thank you, <span className="font-semibold text-slate-800">{formData.name}</span>. An Awlo sales advisor will call you at <span className="font-semibold text-slate-800">{formData.phone}</span> shortly.
+                  </p>
+                </div>
                 <button
                   onClick={() => {
                     setSubmitted(false);
-                    setFormData({ name: '', phone: '', email: '', subject: 'General Inquiry', message: '', neighborhood: 'Bole' });
+                    setFormData({
+                      name: '',
+                      phone: '',
+                      email: '',
+                      subject: 'General Inquiry',
+                      message: '',
+                      neighborhood: 'Bole'
+                    });
                   }}
-                  className="bg-[#0F4C3A] text-white font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-[#0c3d2e] transition-colors"
+                  className="mt-4 px-5 py-2.5 rounded-lg border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
                 >
                   Send Another Inquiry
                 </button>
@@ -159,64 +185,78 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <h3 className="text-2xl font-extrabold text-slate-900">Send Us a Message</h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Fill out the lead capture form below and our team will get back to you within 2 hours.
+                  <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+                    Send Us a Message
+                  </h2>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                    Fill out the form below and our team will get back to you within 2 business hours.
                   </p>
                 </div>
 
                 {errorMsg && (
-                  <div className="p-3 bg-red-50 text-red-700 text-xs font-semibold rounded-xl border border-red-200">
+                  <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-lg">
                     {errorMsg}
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Full Name */}
                   <div className="space-y-1">
-                    <label className="text-xs font-extrabold text-slate-700 uppercase">Your Name *</label>
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Yohannes Haile"
+                      placeholder="e.g. Almaz Bekele"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                     />
                   </div>
 
+                  {/* Phone Number */}
                   <div className="space-y-1">
-                    <label className="text-xs font-extrabold text-slate-700 uppercase">Phone Number *</label>
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="tel"
                       required
-                      placeholder="+251 91 000 0000"
+                      placeholder="+251 9..."
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Email */}
                   <div className="space-y-1">
-                    <label className="text-xs font-extrabold text-slate-700 uppercase">Email Address</label>
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                      Email Address (Optional)
+                    </label>
                     <input
                       type="email"
-                      placeholder="you@example.com"
+                      placeholder="name@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                     />
                   </div>
 
+                  {/* Preferred Location */}
                   <div className="space-y-1">
-                    <label className="text-xs font-extrabold text-slate-700 uppercase">Preferred Neighborhood</label>
+                    <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                      Preferred Neighborhood
+                    </label>
                     <select
                       value={formData.neighborhood}
                       onChange={(e) => setFormData({ ...formData, neighborhood: e.target.value })}
-                      className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                     >
-                      <option value="Bole">Bole</option>
+                      <option value="Bole">Bole (Atlas / Medhanialem)</option>
                       <option value="CMC">CMC</option>
                       <option value="Sarbet">Sarbet</option>
                       <option value="Summit">Summit</option>
@@ -228,38 +268,45 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
                   </div>
                 </div>
 
+                {/* Subject */}
                 <div className="space-y-1">
-                  <label className="text-xs font-extrabold text-slate-700 uppercase">Subject</label>
+                  <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                    Subject
+                  </label>
                   <input
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                   />
                 </div>
 
+                {/* Message */}
                 <div className="space-y-1">
-                  <label className="text-xs font-extrabold text-slate-700 uppercase">Message / Requirements</label>
+                  <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                    Your Message / Requirements
+                  </label>
                   <textarea
                     rows={4}
-                    placeholder="Tell us what bedrooms, budget, or specifications you are looking for..."
+                    placeholder="Tell us about your budget, bedroom preference, or schedule a visit..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-white border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#0F4C3A] hover:bg-[#0c3d2e] text-white py-3.5 rounded-xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
+                  className="w-full bg-[#0F4C3A] hover:bg-[#0c3d2e] text-white py-3 px-6 rounded-lg font-bold text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   <Send className="w-4 h-4 text-amber-400" />
-                  <span>{loading ? 'Sending Request...' : 'Submit Inquiry'}</span>
+                  <span>{loading ? 'Submitting...' : 'Submit Inquiry'}</span>
                 </button>
               </form>
             )}
           </div>
+
         </div>
       </div>
     </section>

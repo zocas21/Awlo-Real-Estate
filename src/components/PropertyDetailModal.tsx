@@ -298,18 +298,18 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
                   </button>
 
                   <a
-                    href="tel:+251911234567"
-                    className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 py-3 rounded-xl font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+                    href="tel:+251929419130"
+                    className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 py-2.5 rounded-lg font-semibold text-xs transition-colors flex items-center justify-center gap-2"
                   >
                     <Phone className="w-4 h-4 text-amber-400" />
-                    <span>Call Sales: +251 91 123 4567</span>
+                    <span>Call Sales: +251 92 941 9130</span>
                   </a>
 
                   <a
-                    href={`https://wa.me/251911234567?text=Hello%20Awlo%20Real%20Estate,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}`}
+                    href={`https://wa.me/251929419130?text=Hello%20Awlo%20Real%20Estate,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-emerald-700 hover:bg-emerald-600 text-white py-3 rounded-xl font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-emerald-700 hover:bg-emerald-600 text-white py-2.5 rounded-lg font-semibold text-xs transition-colors flex items-center justify-center gap-2"
                   >
                     <MessageCircle className="w-4 h-4 text-emerald-300" />
                     <span>WhatsApp Inquiry</span>

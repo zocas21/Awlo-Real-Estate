@@ -312,19 +312,19 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-6',
     question: 'Where is your office located?',
-    answer: 'Our main head office is located at Awlo Building, 4th Floor, Bole Road (near Atlas Traffic Light), Addis Ababa, Ethiopia.',
+    answer: 'Our main office is located in Bole Sub-city, in front of Bole Medhanialem Church, next to Kenenisa Hotel, Addis Ababa, Ethiopia.',
     category: 'location'
   },
   {
     id: 'faq-7',
     question: 'What are your working hours?',
-    answer: 'We are open Monday through Saturday from 8:30 AM to 6:00 PM (East Africa Time). We are closed on Sundays, but our website and AI assistant "Awlo" are active 24/7.',
+    answer: 'Our office hours are Monday through Saturday 09:30–20:00, and Sunday 14:00–20:00 (East Africa Time). Our website and AI assistant "Awlo" are available 24/7.',
     category: 'process'
   },
   {
     id: 'faq-8',
     question: 'Can I visit a site before buying?',
-    answer: 'Yes! We encourage all prospective buyers to visit our sites. You can book a free guided VIP site tour directly on our website, through our AI assistant "Awlo", or by calling our sales team at +251 91 123 4567.',
+    answer: 'Yes! We welcome all prospective buyers to tour our developments. You can book a free guided VIP site tour directly on our website, through our AI assistant "Awlo", or by contacting our team at +251 92 941 9130 or awlobc@gmail.com.',
     category: 'process'
   }
 ];

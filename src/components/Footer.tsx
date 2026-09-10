@@ -1,5 +1,6 @@
 import React from 'react';
-import { Building2, Phone, Mail, MapPin, MessageCircle, Send, ArrowUpRight } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { SocialLinks, AWLO_CONTACT_INFO } from './SocialLinks';
 
 interface FooterProps {
   setActiveTab: (tab: 'home' | 'projects' | 'about' | 'contact' | 'faq') => void;
@@ -13,64 +14,45 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
   };
 
   return (
-    <footer className="bg-[#0F4C3A] text-white pt-16 pb-12 border-t border-emerald-900">
+    <footer className="bg-[#0F4C3A] text-white pt-14 pb-10 border-t border-emerald-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Col 1 & 2: Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-extrabold shadow-sm">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-2xl font-black text-white tracking-tight">AWLO</span>
-                <p className="text-[10px] font-semibold text-amber-300 uppercase tracking-widest -mt-1">
-                  Real Estate
-                </p>
-              </div>
-            </div>
+            <button
+              onClick={() => handleNav('home')}
+              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-md"
+              aria-label="Awlo Real Estate"
+            >
+              <img
+                src="https://i.postimg.cc/N0S4FWJj/IMG-20260910-094745-843-removebg-preview.png"
+                alt="Awlo Real Estate"
+                className="h-11 sm:h-12 w-auto object-contain brightness-0 invert"
+                referrerPolicy="no-referrer"
+              />
+            </button>
 
             <p className="text-xs sm:text-sm text-emerald-100/80 leading-relaxed max-w-sm">
-              "Find Your Place in Addis Ababa" — Premier developer of luxury residential apartments, commercial high-rises, and mixed-use communities in Ethiopia.
+              "Find Your Place in Addis Ababa" — Premier developer of luxury residential apartments and commercial properties with 100% legal title deeds in Ethiopia.
             </p>
 
-            <div className="pt-2 flex items-center space-x-3 text-emerald-200">
-              <a
-                href="https://wa.me/251911234567"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-slate-900 flex items-center justify-center transition-colors"
-                title="WhatsApp"
-              >
-                <MessageCircle className="w-4 h-4" />
-              </a>
-              <a
-                href="https://t.me/awlo_real_estate"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-slate-900 flex items-center justify-center transition-colors"
-                title="Telegram Channel"
-              >
-                <Send className="w-4 h-4" />
-              </a>
-              <a
-                href="tel:+251911234567"
-                className="w-9 h-9 rounded-xl bg-white/10 hover:bg-amber-400 hover:text-slate-900 flex items-center justify-center transition-colors"
-                title="Call Office"
-              >
-                <Phone className="w-4 h-4" />
-              </a>
+            {/* Social / Contact Icons */}
+            <div className="pt-2 space-y-2">
+              <p className="text-[11px] font-semibold tracking-wider text-emerald-200/80 uppercase">
+                Connect With Us
+              </p>
+              <SocialLinks variant="footer" />
             </div>
           </div>
 
           {/* Col 3: Quick Navigation */}
           <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-amber-300 uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider">Navigation</h4>
             <ul className="space-y-2 text-xs text-emerald-100 font-medium">
               <li>
                 <button onClick={() => handleNav('home')} className="hover:text-amber-300 transition-colors">
-                  Home Overview
+                  Home
                 </button>
               </li>
               <li>
@@ -80,17 +62,17 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
               </li>
               <li>
                 <button onClick={() => handleNav('about')} className="hover:text-amber-300 transition-colors">
-                  About Awlo Story
+                  About Us
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('contact')} className="hover:text-amber-300 transition-colors">
-                  Contact Sales Office
+                  Contact Office
                 </button>
               </li>
               <li>
                 <button onClick={() => handleNav('faq')} className="hover:text-amber-300 transition-colors">
-                  FAQ & Legal Ownership
+                  Frequently Asked Questions
                 </button>
               </li>
             </ul>
@@ -98,54 +80,72 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
 
           {/* Col 4: Top Neighborhoods */}
           <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-amber-300 uppercase tracking-wider">Addis Ababa Locations</h4>
+            <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider">Locations</h4>
             <ul className="space-y-2 text-xs text-emerald-100 font-medium">
-              <li className="hover:text-amber-300">Bole Atlas & Airport Corridor</li>
-              <li className="hover:text-amber-300">CMC Michael & Safari</li>
-              <li className="hover:text-amber-300">Sarbet AU Diplomatic Hub</li>
-              <li className="hover:text-amber-300">Summit Pinnacle Heights</li>
-              <li className="hover:text-amber-300">Ayat Light Rail Zone</li>
-              <li className="hover:text-amber-300">Gerji Commercial District</li>
+              <li>Bole (Atlas & Medhanialem)</li>
+              <li>CMC (Michael Church)</li>
+              <li>Sarbet (AU & Old Airport)</li>
+              <li>Summit (Pinnacle Corridor)</li>
+              <li>Ayat & Bole Arabsa</li>
+              <li>Gerji & Lebu</li>
             </ul>
           </div>
 
-          {/* Col 5: Head Office Info */}
+          {/* Col 5: Office Details */}
           <div className="space-y-3">
-            <h4 className="text-sm font-extrabold text-amber-300 uppercase tracking-wider">Head Office</h4>
-            <div className="space-y-2 text-xs text-emerald-100">
+            <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider">Contact & Office</h4>
+            <div className="space-y-2.5 text-xs text-emerald-100 leading-relaxed">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                <span>Awlo Building, 4th Floor, Bole Road (Atlas Traffic Light), Addis Ababa, Ethiopia</span>
+                <span>{AWLO_CONTACT_INFO.address}</span>
               </div>
+
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>+251 91 123 4567 / +251 11 667 8900</span>
+                <a href={`tel:${AWLO_CONTACT_INFO.phoneClean}`} className="hover:text-amber-300 transition-colors">
+                  {AWLO_CONTACT_INFO.phone}
+                </a>
               </div>
+
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>info@awlo-realestate.et</span>
+                <a href={`mailto:${AWLO_CONTACT_INFO.email}`} className="hover:text-amber-300 transition-colors">
+                  {AWLO_CONTACT_INFO.email}
+                </a>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Clock className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <p>{AWLO_CONTACT_INFO.hoursWeekday}</p>
+                  <p className="text-emerald-300/80">{AWLO_CONTACT_INFO.hoursSunday}</p>
+                </div>
               </div>
             </div>
 
             <button
               onClick={onBookTour}
-              className="mt-2 w-full bg-amber-400 hover:bg-amber-300 text-slate-900 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center gap-1.5"
+              className="mt-3 w-full bg-amber-400 hover:bg-amber-300 text-slate-900 py-2 rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
             >
-              <span>Book a Site Tour</span>
+              <span>Book a Tour</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
         {/* Bottom copyright bar */}
-        <div className="pt-8 border-t border-emerald-900/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-emerald-200">
-          <p>© {new Date().getFullYear()} Awlo Real Estate PLC. All Rights Reserved. Addis Ababa, Ethiopia.</p>
-          <div className="flex items-center space-x-4">
-            <span>Privacy Policy</span>
+        <div className="pt-8 border-t border-emerald-900/60 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-emerald-200/80">
+          <p>© {new Date().getFullYear()} Awlo Real Estate. All Rights Reserved. Addis Ababa, Ethiopia.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <span>Bole Sub-city</span>
             <span>•</span>
-            <span>Terms of Service</span>
+            <a href={AWLO_CONTACT_INFO.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
+              Google Maps
+            </a>
             <span>•</span>
-            <span>Legal Certificate Verification</span>
+            <a href={AWLO_CONTACT_INFO.wazeUrl} target="_blank" rel="noopener noreferrer" className="hover:text-amber-300 transition-colors">
+              Waze Directions
+            </a>
           </div>
         </div>
       </div>
