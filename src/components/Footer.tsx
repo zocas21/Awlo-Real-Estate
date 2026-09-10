@@ -27,9 +27,9 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
               aria-label="Awlo Real Estate"
             >
               <img
-                src="https://i.postimg.cc/N0S4FWJj/IMG-20260910-094745-843-removebg-preview.png"
+                src="https://i.postimg.cc/tRtfTN6S/IMG-20260910-094745-843-removebg-preview-(1).png"
                 alt="Awlo Real Estate"
-                className="h-11 sm:h-12 w-auto object-contain brightness-0 invert"
+                className="h-11 sm:h-12 w-auto object-contain bg-transparent"
                 referrerPolicy="no-referrer"
               />
             </button>

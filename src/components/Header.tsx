@@ -80,9 +80,9 @@ export const Header: React.FC<HeaderProps> = ({
           aria-label="Awlo Real Estate Home"
         >
           <img
-            src="https://i.postimg.cc/N0S4FWJj/IMG-20260910-094745-843-removebg-preview.png"
+            src="https://i.postimg.cc/tRtfTN6S/IMG-20260910-094745-843-removebg-preview-(1).png"
             alt="Awlo Real Estate"
-            className="h-10 sm:h-12 w-auto object-contain"
+            className="h-[44px] sm:h-[48px] w-auto object-contain bg-transparent"
             referrerPolicy="no-referrer"
           />
         </button>
