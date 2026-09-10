@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, MapPin, Building, DollarSign, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Search, MapPin, Building, DollarSign, Calendar, ArrowRight, Sparkles, Check, Home, Layers } from 'lucide-react';
 import { FilterState } from '../types';
 
 interface HeroProps {
@@ -7,13 +7,15 @@ interface HeroProps {
   setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
   onSearchSubmit: () => void;
   onExploreProjects: () => void;
+  onBookTour?: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   filters,
   setFilters,
   onSearchSubmit,
-  onExploreProjects
+  onExploreProjects,
+  onBookTour
 }) => {
   const handleInputChange = (field: keyof FilterState, value: any) => {
     setFilters(prev => ({ ...prev, [field]: value }));
@@ -25,54 +27,145 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <div className="relative bg-[#0F4C3A] text-white py-14 lg:py-20 border-b border-emerald-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-5">
-          {/* Tagline */}
-          <div className="inline-flex items-center gap-2 bg-emerald-900 text-amber-300 px-3 py-1 rounded-md text-xs font-semibold tracking-wide border border-emerald-800">
-            <span>Find Your Place in Addis Ababa</span>
+    <section className="relative bg-[#0A1128] text-white py-16 sm:py-24 border-b border-slate-900 overflow-hidden">
+      {/* Subtle grid/dot pattern overlay */}
+      <div className="absolute inset-0 bg-grid-pattern-dark pointer-events-none opacity-90" />
+
+      {/* Subtle blue accent glow behind hero content */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        {/* Top Header Block */}
+        <div className="max-w-3xl space-y-6">
+          
+          {/* Small rounded pill badge above section headline */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-blue-950/80 text-blue-400 border border-blue-800/60 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <span>PREMIER REAL ESTATE IN ADDIS ABABA</span>
           </div>
 
-          {/* Headline */}
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight text-white">
-            Premium Properties in Addis Ababa
+          {/* Bold white headline text with ONE word highlighted in blue */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
+            Find Your Dream <span className="text-blue-500">Property</span> in Addis Ababa
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-base sm:text-lg text-emerald-100/90 font-normal leading-relaxed max-w-2xl">
-            Discover verified apartments, luxury penthouses, and prime commercial hubs in Bole, CMC, Sarbet, Summit, and Ayat with 100% legal title deeds.
+          {/* Light gray subtext */}
+          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+            Discover verified luxury apartments, penthouses, and commercial developments across Bole, CMC, Sarbet, Summit, and Ayat with guaranteed 100% legal title deeds.
           </p>
 
-          {/* Key Trust Highlights */}
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-emerald-100/80 pt-1">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Full Legal Title Deeds</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Milestone Payment Plans</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Bole Office Tour Pick-up</span>
-            </div>
+          {/* Rounded pill-shaped filter tags/badges with icons */}
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('neighborhood', 'Bole');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <span>Bole</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('neighborhood', 'CMC');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <span>CMC</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('neighborhood', 'Sarbet');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <span>Sarbet</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('propertyType', 'Apartment');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <Home className="w-3.5 h-3.5 text-blue-400" />
+              <span>Apartments</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('propertyType', 'Commercial');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <Building className="w-3.5 h-3.5 text-blue-400" />
+              <span>Commercial</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                handleInputChange('status', 'Ready');
+                onSearchSubmit();
+              }}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-amber-300 border border-slate-700/80 text-xs font-medium transition-all"
+            >
+              <Check className="w-3.5 h-3.5 text-amber-400" />
+              <span>Ready for Move-In</span>
+            </button>
+          </div>
+
+          {/* Action Buttons: Solid blue rounded pill primary button + outline rounded pill secondary button */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <button
+              type="button"
+              onClick={onExploreProjects}
+              className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 shadow-sm transition-all flex items-center gap-2"
+            >
+              <span>Explore Available Listings</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              type="button"
+              onClick={onBookTour}
+              className="rounded-full border border-slate-600 hover:border-blue-400 text-slate-200 hover:text-white hover:bg-slate-800/60 font-semibold text-sm px-6 py-3 transition-all flex items-center gap-2"
+            >
+              <Calendar className="w-4 h-4 text-blue-400" />
+              <span>Book VIP Site Tour</span>
+            </button>
           </div>
         </div>
 
-        {/* Flat Hero Search Box */}
-        <div className="mt-8 bg-white p-5 sm:p-6 rounded-xl border border-slate-200 text-slate-800">
+        {/* Clean Hero Search Card: White rounded card with soft shadows */}
+        <div className="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200/90 shadow-md text-slate-900 max-w-5xl">
           <form onSubmit={handleFormSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+            
             {/* Location Filter */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-[#0F4C3A]" />
-                Neighborhood
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                <span>Neighborhood</span>
               </label>
               <select
                 value={filters.neighborhood}
                 onChange={(e) => handleInputChange('neighborhood', e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-800"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800 transition-colors"
               >
                 <option value="all">All Addis Ababa Locations</option>
                 <option value="Bole">Bole (Atlas & Medhanialem)</option>
@@ -88,16 +181,16 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Property Type Filter */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
-                <Building className="w-3.5 h-3.5 text-[#0F4C3A]" />
-                Property Type
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <Building className="w-3.5 h-3.5 text-blue-600" />
+                <span>Property Type</span>
               </label>
               <select
                 value={filters.propertyType}
                 onChange={(e) => handleInputChange('propertyType', e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-800"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800 transition-colors"
               >
-                <option value="all">All Types</option>
+                <option value="all">All Property Types</option>
                 <option value="Apartment">Apartment</option>
                 <option value="Penthouse">Penthouse</option>
                 <option value="Commercial">Commercial / Office</option>
@@ -107,16 +200,16 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Price Range */}
             <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
-                <DollarSign className="w-3.5 h-3.5 text-[#0F4C3A]" />
-                Max Price (ETB)
+              <label className="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <DollarSign className="w-3.5 h-3.5 text-blue-600" />
+                <span>Max Budget (ETB)</span>
               </label>
               <select
                 value={filters.maxPrice}
                 onChange={(e) => handleInputChange('maxPrice', Number(e.target.value))}
-                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-800"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800 transition-colors"
               >
-                <option value={50000000}>Any Price</option>
+                <option value={50000000}>Any Budget</option>
                 <option value={15000000}>Under ETB 15 Million</option>
                 <option value={20000000}>Under ETB 20 Million</option>
                 <option value={30000000}>Under ETB 30 Million</option>
@@ -124,58 +217,68 @@ export const Hero: React.FC<HeroProps> = ({
               </select>
             </div>
 
-            {/* Submit Button */}
+            {/* Primary Search Action Button: Solid Blue Rounded Pill */}
             <div className="pt-2 sm:pt-0">
               <button
                 type="submit"
-                className="w-full bg-[#0F4C3A] hover:bg-[#0c3d2e] text-white py-2.5 px-5 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2"
+                className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-5 font-semibold text-sm transition-all shadow-sm flex items-center justify-center gap-2"
               >
-                <Search className="w-4 h-4 text-amber-400" />
+                <Search className="w-4 h-4" />
                 <span>Search Properties</span>
               </button>
             </div>
           </form>
 
-          {/* Quick Filter Tags */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
-            <span className="font-semibold text-slate-500">Popular:</span>
+          {/* Thin divider line at the bottom of the card */}
+          <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-slate-700">Quick Picks:</span>
+              <button
+                type="button"
+                onClick={() => {
+                  handleInputChange('neighborhood', 'Bole');
+                  onSearchSubmit();
+                }}
+                className="hover:text-blue-600 hover:underline"
+              >
+                Bole Luxury
+              </button>
+              <span>•</span>
+              <button
+                type="button"
+                onClick={() => {
+                  handleInputChange('propertyType', 'Penthouse');
+                  onSearchSubmit();
+                }}
+                className="hover:text-blue-600 hover:underline"
+              >
+                Penthouses
+              </button>
+              <span>•</span>
+              <button
+                type="button"
+                onClick={() => {
+                  handleInputChange('status', 'Ready');
+                  onSearchSubmit();
+                }}
+                className="hover:text-blue-600 hover:underline"
+              >
+                Immediate Handover
+              </button>
+            </div>
+
             <button
-              onClick={() => {
-                handleInputChange('neighborhood', 'Bole');
-                onSearchSubmit();
-              }}
-              className="bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded font-medium transition-colors"
-            >
-              Bole Apartments
-            </button>
-            <button
-              onClick={() => {
-                handleInputChange('status', 'Ready');
-                onSearchSubmit();
-              }}
-              className="bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded font-medium transition-colors"
-            >
-              Ready for Move-in
-            </button>
-            <button
-              onClick={() => {
-                handleInputChange('propertyType', 'Commercial');
-                onSearchSubmit();
-              }}
-              className="bg-slate-100 text-slate-700 hover:bg-slate-200 px-2.5 py-1 rounded font-medium transition-colors"
-            >
-              Commercial Units
-            </button>
-            <button
+              type="button"
               onClick={onExploreProjects}
-              className="ml-auto text-[#0F4C3A] hover:underline font-semibold flex items-center gap-1"
+              className="text-blue-600 hover:underline font-semibold flex items-center gap-1"
             >
-              <span>View All 8 Listings</span>
+              <span>View all 8 projects</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 };

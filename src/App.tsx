@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { SAMPLE_PROPERTIES, FAQ_ITEMS } from './data/mockData';
+import { SAMPLE_PROPERTIES } from './data/mockData';
 import { Property, FilterState, Lead } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -143,7 +143,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FDFBF7] text-slate-800 font-sans selection:bg-[#0F4C3A] selection:text-amber-300">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 font-sans selection:bg-blue-600 selection:text-white">
       {/* Sticky Header */}
       <Header
         activeTab={activeTab}
@@ -156,7 +156,7 @@ export default function App() {
       {/* Main Page View Switch */}
       <main className="flex-1">
         {activeTab === 'home' && (
-          <div className="space-y-12">
+          <div>
             {/* Hero Section */}
             <Hero
               filters={filters}
@@ -172,7 +172,7 @@ export default function App() {
             />
 
             {/* Listings Grid with Filters */}
-            <div id="properties-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+            <div id="properties-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <FilterBar
                 filters={filters}
                 setFilters={setFilters}
@@ -193,34 +193,30 @@ export default function App() {
             {/* Stats Bar */}
             <StatsBar />
 
-            {/* Why Choose Us */}
+            {/* Why Choose Us (Light Blue #EAF2FF background with grid pattern) */}
             <WhyChooseUs />
 
-            {/* Delivered Projects Gallery */}
+            {/* Delivered Projects Gallery (White background) */}
             <DeliveredProjects />
 
-            {/* FAQ Accordion */}
-            <FAQAccordion
-              onAskAI={(questionText) => {
-                // Could open AI widget or handle AI search
-              }}
-            />
+            {/* FAQ Accordion (Light Blue #EAF2FF background) */}
+            <FAQAccordion />
 
-            {/* Lead Capture Contact Section */}
+            {/* Lead Capture Contact Section (White background with Navy Card) */}
             <ContactForm onLeadSubmitted={handleLeadAdded} />
           </div>
         )}
 
         {activeTab === 'projects' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-            <div className="text-center space-y-2">
-              <span className="text-xs font-extrabold tracking-widest text-[#0F4C3A] uppercase bg-emerald-100 px-3.5 py-1 rounded-full">
-                Addis Ababa Listings
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 space-y-10">
+            <div className="text-center space-y-3">
+              <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-blue-50 text-blue-600 border border-blue-100 shadow-xs">
+                ADDIS ABABA PORTFOLIO
               </span>
-              <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">
-                All Available Properties
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+                All Available <span className="text-blue-600">Properties</span>
               </h1>
-              <p className="text-sm text-slate-600 max-w-lg mx-auto">
+              <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto">
                 Filter by neighborhood, budget, status, or bedroom size across our entire real estate portfolio.
               </p>
             </div>
@@ -248,7 +244,7 @@ export default function App() {
         {activeTab === 'contact' && <ContactPage onLeadSubmitted={handleLeadAdded} />}
 
         {activeTab === 'faq' && (
-          <div className="py-8">
+          <div className="py-4">
             <FAQAccordion />
           </div>
         )}

@@ -62,18 +62,18 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
 
-        {/* Header */}
-        <div className="bg-[#0F4C3A] text-white px-6 py-5 flex items-center justify-between">
+        {/* Header in Deep Navy */}
+        <div className="bg-[#0A1128] text-white px-6 py-5 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-900 flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold">
               <Calendar className="w-5 h-5" />
             </div>
             <div>
               <h3 className="text-lg font-extrabold text-white">Book a Site Tour</h3>
-              <p className="text-xs text-amber-300 font-medium">Free guided tour of Awlo developments</p>
+              <p className="text-xs text-blue-300 font-medium">Free guided tour of Awlo developments</p>
             </div>
           </div>
           <button
@@ -85,11 +85,11 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-6 sm:p-7">
           {submitted ? (
             <div className="text-center py-8 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-[#0F4C3A] flex items-center justify-center mx-auto">
-                <CheckCircle className="w-10 h-10 text-[#0F4C3A]" />
+              <div className="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+                <CheckCircle className="w-10 h-10 text-blue-600" />
               </div>
               <h4 className="text-xl font-extrabold text-slate-900">Tour Request Scheduled!</h4>
               <p className="text-xs text-slate-600">
@@ -100,7 +100,7 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
                   setSubmitted(false);
                   onClose();
                 }}
-                className="bg-[#0F4C3A] text-white font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-[#0c3d2e] transition-colors"
+                className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2.5 text-xs transition-colors shadow-sm"
               >
                 Close Dialog
               </button>
@@ -108,11 +108,11 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div className="space-y-1">
-                <label className="font-extrabold text-slate-700 uppercase">Select Property</label>
+                <label className="font-bold text-slate-700 uppercase">Select Property</label>
                 <select
                   value={formData.propertyTitle}
                   onChange={(e) => setFormData({ ...formData, propertyTitle: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-800"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800"
                 >
                   {SAMPLE_PROPERTIES.map(p => (
                     <option key={p.id} value={p.title}>
@@ -124,47 +124,47 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="font-extrabold text-slate-700 uppercase">Full Name *</label>
+                  <label className="font-bold text-slate-700 uppercase">Full Name *</label>
                   <input
                     type="text"
                     required
                     placeholder="e.g. Meron Tadesse"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-extrabold text-slate-700 uppercase">Phone Number *</label>
+                  <label className="font-bold text-slate-700 uppercase">Phone Number *</label>
                   <input
                     type="tel"
                     required
                     placeholder="+251 91 234 5678"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="font-extrabold text-slate-700 uppercase">Preferred Date</label>
+                  <label className="font-bold text-slate-700 uppercase">Preferred Date</label>
                   <input
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="font-extrabold text-slate-700 uppercase">Time Window</label>
+                  <label className="font-bold text-slate-700 uppercase">Time Window</label>
                   <select
                     value={formData.timeSlot}
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
                   >
                     <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM - 12:00 PM)</option>
                     <option value="Afternoon (2:00 PM - 5:00 PM)">Afternoon (2:00 PM - 5:00 PM)</option>
@@ -173,22 +173,23 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
               </div>
 
               <div className="space-y-1">
-                <label className="font-extrabold text-slate-700 uppercase">Special Notes / Pick-up request</label>
+                <label className="font-bold text-slate-700 uppercase">Special Notes / Pick-up request</label>
                 <textarea
                   rows={2}
                   placeholder="Let us know if you need transport assistance or have specific questions..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-900"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-900"
                 />
               </div>
 
+              {/* Solid blue rounded pill primary button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#0F4C3A] hover:bg-[#0c3d2e] text-white py-3 rounded-xl font-bold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50"
+                className="w-full rounded-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold text-xs shadow-sm transition-all flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <Calendar className="w-4 h-4 text-amber-400" />
+                <Calendar className="w-4 h-4 text-white" />
                 <span>{loading ? 'Confirming Tour...' : 'Confirm Site Visit'}</span>
               </button>
             </form>

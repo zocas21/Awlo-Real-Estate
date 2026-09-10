@@ -26,7 +26,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-8">
+    <div className="bg-white rounded-2xl border border-slate-200/90 shadow-xs p-4 sm:p-5 mb-8">
       {/* Top Search & Primary Filters row */}
       <div className="flex flex-col lg:flex-row gap-3 items-center justify-between">
         {/* Search Input */}
@@ -37,23 +37,23 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             placeholder="Search by title, location, or keywords..."
             value={filters.search}
             onChange={handleTextChange}
-            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-800"
+            className="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-2.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-800"
           />
         </div>
 
         {/* Quick Filter Selectors */}
         <div className="w-full lg:w-auto flex flex-wrap items-center gap-2.5">
           {/* Bedrooms Pills */}
-          <div className="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-semibold">
+          <div className="flex items-center bg-slate-100 p-1 rounded-full text-xs font-semibold">
             <span className="px-2 text-slate-500 font-medium">Beds:</span>
             {['any', '1+', '2+', '3+', '4+'].map(val => (
               <button
                 key={val}
                 type="button"
                 onClick={() => handleChange('bedrooms', val)}
-                className={`px-2.5 py-1 rounded-lg transition-colors capitalize ${
+                className={`px-3 py-1 rounded-full transition-colors capitalize ${
                   filters.bedrooms === val
-                    ? 'bg-[#0F4C3A] text-white shadow-xs'
+                    ? 'bg-blue-600 text-white shadow-xs'
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
@@ -66,7 +66,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <select
             value={filters.status}
             onChange={(e) => handleChange('status', e.target.value)}
-            className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#0F4C3A] text-slate-700"
+            className="bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-600 text-slate-700"
           >
             <option value="any">Status: All</option>
             <option value="Ready">Ready for Move-In</option>
@@ -77,13 +77,13 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold border transition-colors ${
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold border transition-colors ${
               expanded
-                ? 'bg-emerald-50 text-[#0F4C3A] border-emerald-200'
+                ? 'bg-blue-50 text-blue-600 border-blue-200'
                 : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
             }`}
           >
-            <SlidersHorizontal className="w-3.5 h-3.5 text-[#0F4C3A]" />
+            <SlidersHorizontal className="w-3.5 h-3.5 text-blue-600" />
             <span>More Filters</span>
             {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
           </button>
@@ -110,7 +110,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <select
               value={filters.bathrooms}
               onChange={(e) => handleChange('bathrooms', e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0F4C3A]"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               <option value="any">Any Bathrooms</option>
               <option value="1+">1+ Bathrooms</option>
@@ -126,7 +126,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             <select
               value={filters.minPrice}
               onChange={(e) => handleChange('minPrice', Number(e.target.value))}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0F4C3A]"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               <option value={0}>No Minimum</option>
               <option value={10000000}>10 Million ETB</option>
@@ -136,29 +136,29 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </select>
           </div>
 
-          {/* Min Area (sq ft) */}
+          {/* Max Price */}
           <div className="space-y-1">
-            <label className="text-xs font-bold text-slate-600 uppercase">Min Area (Sq Ft)</label>
+            <label className="text-xs font-bold text-slate-600 uppercase">Max Price (ETB)</label>
             <select
-              value={filters.minSqft}
-              onChange={(e) => handleChange('minSqft', Number(e.target.value))}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0F4C3A]"
+              value={filters.maxPrice}
+              onChange={(e) => handleChange('maxPrice', Number(e.target.value))}
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
-              <option value={0}>Any Size</option>
-              <option value={1000}>1,000+ Sq Ft (100+ Sq M)</option>
-              <option value={1500}>1,500+ Sq Ft (140+ Sq M)</option>
-              <option value={2000}>2,000+ Sq Ft (185+ Sq M)</option>
-              <option value={2500}>2,500+ Sq Ft (230+ Sq M)</option>
+              <option value={50000000}>No Maximum (50M+ ETB)</option>
+              <option value={15000000}>15 Million ETB</option>
+              <option value={25000000}>25 Million ETB</option>
+              <option value={35000000}>35 Million ETB</option>
+              <option value={45000000}>45 Million ETB</option>
             </select>
           </div>
 
-          {/* Neighborhood filter */}
+          {/* Neighborhood */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-slate-600 uppercase">Neighborhood</label>
             <select
               value={filters.neighborhood}
               onChange={(e) => handleChange('neighborhood', e.target.value)}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#0F4C3A]"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               <option value="all">All Locations</option>
               <option value="Bole">Bole</option>
@@ -173,18 +173,6 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           </div>
         </div>
       )}
-
-      {/* Results Summary Counter */}
-      <div className="mt-3 flex items-center justify-between text-xs text-slate-500 font-medium">
-        <span>
-          Showing <strong className="text-slate-800 font-bold">{resultsCount}</strong> matching Awlo properties
-        </span>
-        {(filters.search || filters.neighborhood !== 'all' || filters.propertyType !== 'all' || filters.status !== 'any' || filters.bedrooms !== 'any') && (
-          <span className="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">
-            Filters Active
-          </span>
-        )}
-      </div>
     </div>
   );
 };

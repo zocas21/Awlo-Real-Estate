@@ -1,8 +1,8 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config({ override: true });
 import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import OpenAI from "openai";
 import { GoogleGenAI } from "@google/genai";
 import { SAMPLE_PROPERTIES, FAQ_ITEMS } from "./src/data/mockData";
 
@@ -36,7 +36,7 @@ const leadsStore: StoredLead[] = [
   }
 ];
 
-const AWLO_SYSTEM_PROMPT = `You are the official AI assistant for this website. Help visitors understand the website, its services, products, courses, features, and other available information. Answer clearly, naturally, and professionally. Use information available on the website when relevant. Never invent information. If you do not know something, honestly tell the user that you don't have enough information.
+const AWLO_SYSTEM_PROMPT = `You are the official AI assistant for this website. Help visitors understand the website, its services, products, courses, features, and information. Answer clearly, naturally, and professionally. Use information available on the website whenever relevant. Never invent information. If you don't know something, honestly say that you don't have enough information.
 
 Website & Company Profile:
 - Company Name: Awlo Real Estate
@@ -71,22 +71,10 @@ Guidelines:
 2. Clarify that all properties come with 100% authentic legal title deeds (Sertifikat/Karta) notarized by the Addis Ababa Document Authentication and Registration Agency upon final handover.
 3. Explain the milestone installment payment plans (e.g. 20% down payment with balance paid across 18–36 months).
 4. Invite users to book a free guided VIP site tour or visit our Bole head office in front of Bole Medhanialem Church, next to Kenenisa Hotel.
-5. Keep answers friendly, concise, natural, and useful.`;
+5. The AI should understand follow-up questions and maintain conversation context.
+6. Keep answers friendly, concise, natural, and useful.`;
 
-// Lazy OpenAI client initialization
-let openaiClient: OpenAI | null = null;
-function getOpenAIClient(): OpenAI | null {
-  const apiKey = process.env.OPENAI_API_KEY;
-  if (!apiKey) {
-    return null;
-  }
-  if (!openaiClient) {
-    openaiClient = new OpenAI({ apiKey });
-  }
-  return openaiClient;
-}
-
-// Lazy Gemini client initialization for seamless fallback
+// Lazy GoogleGenAI client initialization using server-side GEMINI_API_KEY
 let geminiClient: GoogleGenAI | null = null;
 function getGeminiClient(): GoogleGenAI | null {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -106,30 +94,6 @@ function getGeminiClient(): GoogleGenAI | null {
   return geminiClient;
 }
 
-// Fallback response generator based on site data if both online AI APIs are unreachable
-function getRuleBasedResponse(query: string): string {
-  const q = query.toLowerCase();
-  if (q.includes('bole') && !q.includes('arabsa')) {
-    return "Awlo Real Estate offers premium residential options in Bole, notably **Awlo Bole Horizon Tower** (3-bedroom luxury apartment, ETB 28.5M / ~$220,000 USD). It comes ready for move-in, complete with backup power, water reservoirs, and 100% notarized legal title deeds. Would you like to schedule a tour?";
-  }
-  if (q.includes('arabsa')) {
-    return "Our **Awlo Bole Arabsa Eco-Flats** feature modern 3-bedroom residences at ETB 11.5M (~$89,000 USD) with scenic mountain views and solar water heating. Installment plans start with a 20% down payment.";
-  }
-  if (q.includes('price') || q.includes('cost') || q.includes('budget')) {
-    return "Our properties range from ETB 11.5 Million (~$89k USD) for Bole Arabsa apartments to ETB 38 Million (~$295k USD) for luxury penthouses in CMC. We offer milestone payment plans starting with 20% down payment.";
-  }
-  if (q.includes('office') || q.includes('location') || q.includes('address') || q.includes('where')) {
-    return "Our Awlo Real Estate head office is located in Bole Sub-city, in front of Bole Medhanialem Church, next to Kenenisa Hotel, Addis Ababa. We are open Monday–Saturday 09:30–20:00 and Sunday 14:00–20:00. You can reach us at +251 92 941 9130.";
-  }
-  if (q.includes('tour') || q.includes('visit') || q.includes('book')) {
-    return "We would be delighted to host you for a free guided VIP site tour of our Addis Ababa developments! You can click the 'Book Site Tour' button in the chat or call our sales team directly at +251 92 941 9130.";
-  }
-  if (q.includes('legal') || q.includes('karta') || q.includes('title') || q.includes('deed')) {
-    return "All Awlo properties are sold with 100% authentic legal ownership title deeds (Sertifikat/Karta) registered with the Addis Ababa City Administration Document Authentication and Registration Agency.";
-  }
-  return "Welcome to Awlo Real Estate! We offer verified luxury residential apartments and commercial developments across Bole, CMC, Sarbet, Summit, and Ayat in Addis Ababa. How may I help you today?";
-}
-
 async function startServer() {
   const app = express();
   app.use(express.json());
@@ -141,8 +105,8 @@ async function startServer() {
     res.json({
       status: "ok",
       service: "Awlo Real Estate API",
-      aiProvider: "OpenAI ChatGPT (with Gemini backup)",
-      model: "gpt-4o-mini"
+      aiProvider: "Google Gemini API",
+      model: "gemini-3.6-flash"
     });
   });
 
@@ -180,10 +144,11 @@ async function startServer() {
     return res.json({ success: true, message: "Lead recorded successfully!", lead: newLead });
   });
 
-  // ChatGPT / OpenAI AI Chat API with resilient multi-tier fallback
+  // Google Gemini AI Chat API
   app.post("/api/chat", async (req, res) => {
     try {
       const { message, history } = req.body;
+      console.log("[/api/chat] Incoming chat request:", { messageLength: message?.length, historyCount: history?.length });
 
       if (!message || typeof message !== "string" || !message.trim()) {
         return res.status(400).json({
@@ -192,101 +157,60 @@ async function startServer() {
         });
       }
 
-      let responseText: string | null = null;
-      let usedProvider = "none";
-
-      // 1. Primary Engine: Try OpenAI ChatGPT API
-      const openai = getOpenAIClient();
-      if (openai) {
-        try {
-          const formattedHistory: OpenAI.Chat.ChatCompletionMessageParam[] = (history || [])
-            .filter((h: any) => h && typeof h.text === 'string' && h.text.trim())
-            .map((h: { sender: string; text: string }) => ({
-              role: h.sender === 'user' ? ('user' as const) : ('assistant' as const),
-              content: h.text
-            }));
-
-          const chatMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
-            {
-              role: "system",
-              content: AWLO_SYSTEM_PROMPT
-            },
-            ...formattedHistory,
-            {
-              role: "user",
-              content: message.trim()
-            }
-          ];
-
-          const completion = await openai.chat.completions.create({
-            model: "gpt-4o-mini",
-            messages: chatMessages,
-            temperature: 0.7,
-            max_tokens: 600
-          });
-
-          const content = completion.choices[0]?.message?.content?.trim();
-          if (content) {
-            responseText = content;
-            usedProvider = "OpenAI (gpt-4o-mini)";
-          }
-        } catch (openaiErr: any) {
-          // Gracefully detect quota / billing / rate-limit / network issues
-          const status = openaiErr?.status || openaiErr?.statusCode;
-          const msg = openaiErr?.message || '';
-          console.log(`[AI Engine] OpenAI notice (status: ${status}): ${msg.slice(0, 100)}. Switching to Gemini fallback engine...`);
-        }
+      const ai = getGeminiClient();
+      if (!ai) {
+        console.error("GEMINI_API_KEY environment variable is not configured on the server.");
+        return res.status(500).json({
+          success: false,
+          error: "Sorry, I'm having trouble connecting right now. Please try again."
+        });
       }
 
-      // 2. Secondary Engine: Gemini API (if OpenAI had 429 quota or connection error)
-      if (!responseText) {
-        const gemini = getGeminiClient();
-        if (gemini) {
-          try {
-            const formattedHistory = (history || [])
-              .filter((h: any) => h && typeof h.text === 'string' && h.text.trim())
-              .map((h: { sender: string; text: string }) => ({
-                role: h.sender === 'user' ? 'user' : 'model',
-                parts: [{ text: h.text }]
-              }));
+      // Format previous conversation context for Gemini API
+      const contents: Array<{ role: 'user' | 'model'; parts: Array<{ text: string }> }> = [];
 
-            const contents = [
-              ...formattedHistory,
-              { role: 'user', parts: [{ text: message.trim() }] }
-            ];
-
-            const geminiRes = await gemini.models.generateContent({
-              model: "gemini-3.6-flash",
-              contents: contents as any,
-              config: {
-                systemInstruction: AWLO_SYSTEM_PROMPT,
-                temperature: 0.7,
-              }
+      if (Array.isArray(history)) {
+        for (const h of history) {
+          if (h && typeof h.text === "string" && h.text.trim()) {
+            contents.push({
+              role: h.sender === 'user' ? 'user' : 'model',
+              parts: [{ text: h.text.trim() }]
             });
-
-            if (geminiRes.text) {
-              responseText = geminiRes.text;
-              usedProvider = "Gemini (gemini-3.6-flash)";
-            }
-          } catch (geminiErr: any) {
-            console.log(`[AI Engine] Gemini fallback notice: ${geminiErr?.message?.slice(0, 100) || 'Unavailable'}`);
           }
         }
       }
 
-      // 3. Fallback: Intelligent domain knowledge base matcher
-      if (!responseText) {
-        responseText = getRuleBasedResponse(message);
-        usedProvider = "Awlo Knowledge Engine";
-      }
+      // Append current user message
+      contents.push({
+        role: 'user',
+        parts: [{ text: message.trim() }]
+      });
+
+      console.log("[/api/chat] Sending request to Gemini API (gemini-3.6-flash)...");
+      const startTime = Date.now();
+
+      const response = await ai.models.generateContent({
+        model: "gemini-3.6-flash",
+        contents: contents as any,
+        config: {
+          systemInstruction: AWLO_SYSTEM_PROMPT,
+          temperature: 0.7,
+        }
+      });
+
+      console.log(`[/api/chat] Received Gemini response in ${Date.now() - startTime}ms`);
+
+      const responseText =
+        response.text?.trim() ||
+        "I am here to assist you with finding the right property with Awlo Real Estate in Addis Ababa. How may I help you today?";
 
       // Match property IDs in response to suggest relevant property cards in the UI
       const matchedPropertyIds: string[] = [];
       SAMPLE_PROPERTIES.forEach(p => {
         if (
-          responseText!.toLowerCase().includes(p.title.toLowerCase()) ||
-          (responseText!.toLowerCase().includes(p.neighborhood.toLowerCase()) &&
-            responseText!.toLowerCase().includes(p.propertyType.toLowerCase()))
+          responseText.toLowerCase().includes(p.title.toLowerCase()) ||
+          (responseText.toLowerCase().includes(p.neighborhood.toLowerCase()) &&
+            responseText.toLowerCase().includes(p.propertyType.toLowerCase()))
         ) {
           if (!matchedPropertyIds.includes(p.id)) {
             matchedPropertyIds.push(p.id);
@@ -297,16 +221,13 @@ async function startServer() {
       return res.json({
         success: true,
         text: responseText,
-        provider: usedProvider,
         recommendedPropertyIds: matchedPropertyIds.slice(0, 3)
       });
     } catch (error: any) {
-      console.log("[AI Engine] Handled request exception:", error?.message || error);
-      return res.json({
-        success: true,
-        text: getRuleBasedResponse(req.body?.message || ""),
-        provider: "Awlo Knowledge Engine",
-        recommendedPropertyIds: []
+      console.error("Gemini Chat API Error:", error?.message || error);
+      return res.status(500).json({
+        success: false,
+        error: "Sorry, I'm having trouble connecting right now. Please try again."
       });
     }
   });

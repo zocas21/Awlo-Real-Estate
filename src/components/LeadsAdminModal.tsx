@@ -12,16 +12,18 @@ export const LeadsAdminModal: React.FC<LeadsAdminModalProps> = ({ isOpen, onClos
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col border border-slate-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col border border-slate-200">
 
-        {/* Header */}
-        <div className="bg-[#0F4C3A] text-white px-6 py-4 flex items-center justify-between">
+        {/* Header in Deep Navy */}
+        <div className="bg-[#0A1128] text-white px-6 py-4 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-2.5">
-            <ShieldCheck className="w-6 h-6 text-amber-400" />
+            <div className="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
             <div>
               <h3 className="text-lg font-extrabold text-white">Captured Leads Dashboard</h3>
-              <p className="text-xs text-emerald-200">{leads.length} Real-Time Submissions from Forms & AI Assistant</p>
+              <p className="text-xs text-blue-300">{leads.length} Real-Time Submissions from Forms & AI Assistant</p>
             </div>
           </div>
           <button
@@ -39,11 +41,11 @@ export const LeadsAdminModal: React.FC<LeadsAdminModalProps> = ({ isOpen, onClos
               {leads.map((lead) => (
                 <div
                   key={lead.id}
-                  className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-2 hover:border-[#0F4C3A] transition-colors"
+                  className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs space-y-2 hover:border-blue-300 transition-colors"
                 >
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-100 pb-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-emerald-100 text-[#0F4C3A] flex items-center justify-center font-bold text-xs">
+                      <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">
                         <User className="w-4 h-4" />
                       </div>
                       <div>
@@ -69,7 +71,7 @@ export const LeadsAdminModal: React.FC<LeadsAdminModalProps> = ({ isOpen, onClos
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs text-slate-700">
-                    <div className="flex items-center gap-1.5 font-bold text-[#0F4C3A]">
+                    <div className="flex items-center gap-1.5 font-bold text-blue-600">
                       <Phone className="w-3.5 h-3.5" />
                       <span>{lead.phone}</span>
                     </div>
@@ -84,22 +86,27 @@ export const LeadsAdminModal: React.FC<LeadsAdminModalProps> = ({ isOpen, onClos
                     {lead.preferredNeighborhood && (
                       <div className="flex items-center gap-1.5">
                         <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                        <span>Area: {lead.preferredNeighborhood}</span>
+                        <span>Neighborhood: {lead.preferredNeighborhood}</span>
                       </div>
                     )}
                   </div>
 
                   {lead.message && (
-                    <p className="text-xs bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-slate-600 italic">
-                      "{lead.message}"
-                    </p>
+                    <div className="pt-2 text-xs text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                      <p className="font-semibold text-slate-700 mb-0.5">Inquiry Details:</p>
+                      <p className="italic">"{lead.message}"</p>
+                    </div>
                   )}
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 text-slate-500 text-sm">
-              No leads captured yet. Submit a message via the Contact Form or AI Assistant!
+            <div className="text-center py-16 space-y-3">
+              <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto">
+                <Clock className="w-6 h-6" />
+              </div>
+              <p className="text-sm font-semibold text-slate-700">No leads recorded yet</p>
+              <p className="text-xs text-slate-500">Inquiries from the website contact forms and Gemini AI chatbot will appear here in real-time.</p>
             </div>
           )}
         </div>

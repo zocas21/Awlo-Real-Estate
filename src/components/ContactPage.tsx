@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContactForm } from './ContactForm';
-import { MapPin, Navigation, Compass } from 'lucide-react';
-import { AWLO_CONTACT_INFO, SocialLinks } from './SocialLinks';
+import { MapPin, Navigation, Compass, ExternalLink, Phone } from 'lucide-react';
+import { AWLO_CONTACT_INFO, ReachUsDirectlyCards } from './SocialLinks';
 
 interface ContactPageProps {
   onLeadSubmitted?: (leadData: any) => void;
@@ -9,87 +9,117 @@ interface ContactPageProps {
 
 export const ContactPage: React.FC<ContactPageProps> = ({ onLeadSubmitted }) => {
   return (
-    <div className="bg-slate-50 py-10 sm:py-14 space-y-12">
-      {/* Header section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-        <span className="text-xs font-semibold tracking-wider text-[#0F4C3A] uppercase bg-slate-200/70 px-3 py-1 rounded-md">
-          Direct Sales Office
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-          Contact Awlo Real Estate
-        </h1>
-        <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-          Visit our Bole Sub-city office, reach us by phone or messaging, or request a personalized tour of our developments in Addis Ababa.
-        </p>
+    <div className="bg-white py-12 sm:py-20 space-y-16">
+      
+      {/* 1. Top Section: Reach Us Directly */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        {/* Section Header with Pill Badge and Two-Tone Heading */}
+        <div className="text-center max-w-2xl mx-auto space-y-3">
+          <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-blue-50 text-blue-600 border border-blue-100 shadow-xs">
+            REACH US DIRECTLY
+          </span>
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Reach Us <span className="text-blue-600">Directly</span>
+          </h1>
+
+          <p className="text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+            Choose your preferred communication channel for instant floor plans, price proposals, and title deed verification in Addis Ababa.
+          </p>
+        </div>
+
+        {/* 5 "Reach Us Directly" Cards: Phone (blue), WhatsApp (green), Telegram (light blue), Email (red/pink), Office (purple) */}
+        <ReachUsDirectlyCards />
       </div>
 
-      {/* Main Contact Form & Details Component */}
-      <ContactForm onLeadSubmitted={onLeadSubmitted} />
-
-      {/* Office Directions & Location Card */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
-            <div>
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-[#0F4C3A]" />
-                <span>Office Location & Landmarks</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                {AWLO_CONTACT_INFO.address}
+      {/* 2. Embedded Google Map Section with "Get Directions" Button */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#EAF2FF] bg-grid-pattern-light p-6 sm:p-10 rounded-3xl border border-blue-100 space-y-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-blue-200/60 pb-6">
+            <div className="space-y-2">
+              <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-white text-blue-700 border border-blue-200 shadow-xs">
+                HEADQUARTERS MAP
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Awlo Business Center <span className="text-blue-600">Location</span>
+              </h2>
+              <p className="text-sm text-slate-600 flex items-center gap-1.5 mt-1">
+                <MapPin className="w-4 h-4 text-purple-600 shrink-0" />
+                <span>{AWLO_CONTACT_INFO.address}</span>
               </p>
             </div>
 
-            {/* Direct navigation action buttons */}
+            {/* Action Buttons: Solid blue rounded pill primary button ("Get Directions") + outline rounded pill secondary button */}
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href={AWLO_CONTACT_INFO.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0F4C3A] hover:bg-[#0c3d2e] text-white px-4 py-2 rounded-lg text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 text-sm font-semibold transition-all shadow-sm"
               >
-                <Navigation className="w-3.5 h-3.5 text-amber-400" />
-                <span>Google Maps Directions</span>
+                <Navigation className="w-4 h-4" />
+                <span>Get Directions</span>
+                <ExternalLink className="w-3.5 h-3.5 opacity-80" />
               </a>
 
               <a
-                href={AWLO_CONTACT_INFO.wazeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2 rounded-lg text-xs font-semibold transition-colors border border-slate-300"
+                href={`tel:${AWLO_CONTACT_INFO.phoneClean}`}
+                className="inline-flex items-center gap-2 rounded-full border border-blue-600 text-blue-600 hover:bg-white px-5 py-2.5 text-sm font-semibold transition-all"
               >
-                <Compass className="w-3.5 h-3.5 text-slate-600" />
-                <span>Waze Navigation</span>
+                <Phone className="w-4 h-4" />
+                <span>Call Sales Desk</span>
               </a>
             </div>
           </div>
 
-          {/* Clean flat map visual placeholder with exact landmark indicator */}
-          <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex flex-col justify-end p-6">
-            <img
-              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=80"
-              alt="Bole Medhanialem Addis Ababa Map Landmark"
-              className="absolute inset-0 w-full h-full object-cover opacity-60"
+          {/* Embedded Google Map Frame */}
+          <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-blue-200 shadow-xs bg-slate-100">
+            <iframe
+              src="https://maps.google.com/maps?q=Awlo+Business+Center,+Bole,+Addis+Ababa,+Ethiopia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Awlo Real Estate Business Center Map"
+              className="w-full h-full"
             />
-            <div className="absolute inset-0 bg-slate-900/40"></div>
+          </div>
 
-            <div className="relative z-10 bg-white/95 backdrop-blur-sm p-4 rounded-xl border border-slate-200 max-w-md space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0F4C3A]"></span>
-                <h4 className="font-bold text-sm text-slate-900">Awlo Real Estate Head Office</h4>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-xs text-xs text-slate-600 space-y-1">
+              <div className="font-bold text-slate-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                <span>Landmarks & Proximity</span>
               </div>
-              <p className="text-xs text-slate-600">
-                In front of Bole Medhanialem Church, Next to Kenenisa Hotel, Bole Sub-city, Addis Ababa.
-              </p>
-              <div className="pt-1 flex items-center gap-4 text-xs font-medium text-slate-700">
-                <span>Mon–Sat: 09:30–20:00</span>
-                <span>•</span>
-                <span>Sun: 14:00–20:00</span>
+              <p>In front of Bole Medhanialem Church, Next to Kenenisa Hotel</p>
+            </div>
+
+            <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-xs text-xs text-slate-600 space-y-1">
+              <div className="font-bold text-slate-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span>Showroom Hours</span>
               </div>
+              <p>Mon–Sat 09:30–20:00, Sun 14:00–20:00 (EAT)</p>
+            </div>
+
+            <div className="bg-white p-4 rounded-xl border border-blue-100 shadow-xs text-xs text-slate-600 space-y-1">
+              <div className="font-bold text-slate-900 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Parking & Accessibility</span>
+              </div>
+              <p>Dedicated visitor underground parking with EV charging</p>
             </div>
           </div>
         </div>
       </div>
+
+      {/* 3. Main Inquiry Form */}
+      <ContactForm onLeadSubmitted={onLeadSubmitted} />
+
     </div>
   );
 };
