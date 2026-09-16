@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Calendar, Menu, X, ShieldCheck } from 'lucide-react';
-import { SocialLinks, AWLO_CONTACT_INFO } from './SocialLinks';
+import { Calendar, Menu, X, ShieldCheck } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: 'home' | 'projects' | 'about' | 'contact' | 'faq';
@@ -27,61 +26,17 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-[#0A1128] border-b border-slate-800/90 shadow-md">
-      {/* Top micro bar for quick contact info and social links */}
-      <div className="bg-[#0A1128] text-white py-2 px-4 text-xs border-b border-slate-800/70">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          {/* Location & Hours */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1 text-slate-300 text-[11px] sm:text-xs">
-            <span className="font-medium text-slate-200">
-              {AWLO_CONTACT_INFO.address}
-            </span>
-            <span className="hidden lg:inline text-slate-600">•</span>
-            <span className="hidden lg:inline text-slate-400">Mon–Sat 09:30–20:00, Sun 14:00–20:00</span>
-          </div>
-
-          {/* Quick Contact & Social Icons */}
-          <div className="flex items-center gap-3 sm:gap-4">
-            <a
-              href={`tel:${AWLO_CONTACT_INFO.phoneClean}`}
-              className="flex items-center gap-1.5 font-medium text-slate-200 hover:text-blue-400 transition-colors"
-              title="Call Awlo Real Estate"
-            >
-              <Phone className="w-3.5 h-3.5 text-blue-400" />
-              <span>{AWLO_CONTACT_INFO.phone}</span>
-            </a>
-
-            <div className="h-3 w-px bg-slate-700 hidden sm:block"></div>
-
-            {/* Social quick links */}
-            <div className="flex items-center gap-1">
-              <SocialLinks variant="header" />
-            </div>
-
-            {onOpenLeads && (
-              <button
-                onClick={onOpenLeads}
-                className="flex items-center gap-1 bg-slate-800 hover:bg-slate-700 text-amber-400 px-2 py-0.5 rounded-full text-[11px] border border-slate-700 transition-colors ml-1"
-                title="View Inquiries"
-              >
-                <ShieldCheck className="w-3 h-3 text-amber-400" />
-                <span>Leads ({leadsCount})</span>
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
-
       {/* Main Header bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-5 flex items-center justify-between bg-[#0A1128]">
         {/* Prominent Brand Logo */}
         <button
           onClick={() => handleNavClick('home')}
           className="flex items-center text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-xl p-1 pr-3 sm:pr-5 transition-transform hover:opacity-95 active:scale-[0.99] group"
-          aria-label="Awlo Real Estate Home"
+          aria-label="EthioBest Real Estate Home"
         >
           <img
-            src="https://i.postimg.cc/tRtfTN6S/IMG-20260910-094745-843-removebg-preview-(1).png"
-            alt="Awlo Real Estate"
+            src="https://i.postimg.cc/6QRMkh9s/IMG-20260910-094745-843-modified.png"
+            alt="EthioBest Real Estate"
             className="h-[65px] sm:h-[85px] md:h-[105px] lg:h-[120px] xl:h-[135px] w-auto max-w-[280px] sm:max-w-[360px] lg:max-w-[450px] object-contain bg-transparent select-none drop-shadow-xs"
             referrerPolicy="no-referrer"
           />

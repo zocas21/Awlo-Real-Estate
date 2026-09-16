@@ -6,21 +6,23 @@ export interface SocialLinksProps {
   showLabels?: boolean;
 }
 
-export const AWLO_CONTACT_INFO = {
+export const ETHIOBEST_CONTACT_INFO = {
   phone: '+251 959 15 55 55',
   phoneClean: '+251959155555',
   whatsappClean: '251959155555',
-  email: 'awloestate@gmail.com',
-  address: 'Awlo Business Center, Bole, Addis Ababa',
+  email: 'ethiobestestate@gmail.com',
+  address: 'EthioBest Business Center, Bole, Addis Ababa',
   hoursWeekday: 'Monday–Saturday 09:30–20:00',
   hoursSunday: 'Sunday 14:00–20:00',
   googleMapsUrl: 'https://maps.app.goo.gl/NCyRVk4y7noVoy1x7',
-  wazeUrl: 'https://waze.com/ul?q=Awlo+Business+Center+Bole+Addis+Ababa',
+  wazeUrl: 'https://waze.com/ul?q=EthioBest+Business+Center+Bole+Addis+Ababa',
   whatsappUrl: 'https://wa.me/251959155555',
   telegramUrl: 'https://t.me/+251959155555',
   facebookUrl: 'https://www.facebook.com',
   smsUrl: 'sms:+251959155555'
 };
+
+export const AWLO_CONTACT_INFO = ETHIOBEST_CONTACT_INFO;
 
 export const SocialLinks: React.FC<SocialLinksProps> = ({
   variant = 'footer',

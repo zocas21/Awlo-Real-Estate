@@ -24,7 +24,7 @@ export const WhyChooseUs: React.FC = () => {
 
           {/* Section heading: large bold two-tone heading */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Why Choose <span className="text-blue-600">Awlo Real Estate</span>
+            Why Choose <span className="text-blue-600">EthioBest Real Estate</span>
           </h2>
 
           <p className="text-base text-slate-600 leading-relaxed max-w-xl mx-auto">

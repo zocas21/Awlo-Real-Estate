@@ -18,7 +18,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
   const initialWelcomeMessage: ChatMessage = {
     id: 'msg-welcome',
     sender: 'assistant',
-    text: 'Selam! I am the official AI assistant for Awlo Real Estate in Addis Ababa. I can help you explore our verified residential and commercial properties, check prices, explain payment milestones, verify title deeds, or arrange a site tour.\n\nHow can I help you today?',
+    text: 'Selam! I am the official AI assistant for EthioBest Real Estate in Addis Ababa. I can help you explore our verified residential and commercial properties, check prices, explain payment milestones, verify title deeds, or arrange a site tour.\n\nHow can I help you today?',
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     quickReplies: [
       'Show 2-bedroom apartments in Bole',
@@ -126,14 +126,14 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
         <button
           onClick={() => setIsOpen(true)}
           className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-blue-600 hover:bg-blue-700 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center space-x-3 active:scale-95 group"
-          aria-label="Open Awlo AI Assistant"
+          aria-label="Open EthioBest AI Assistant"
         >
           <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center">
             <Bot className="w-5 h-5 text-white" />
           </div>
           <div className="text-left hidden sm:block">
             <p className="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>Awlo AI Assistant</span>
+              <span>EthioBest AI Assistant</span>
               <Sparkles className="w-3 h-3 text-amber-300" />
             </p>
             <p className="text-[10px] text-blue-100">Google Gemini Powered</p>
@@ -153,7 +153,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
               </div>
               <div>
                 <h3 className="font-bold text-sm text-white flex items-center gap-2">
-                  <span>Awlo AI Assistant</span>
+                  <span>EthioBest AI Assistant</span>
                   <span className="bg-blue-950 text-blue-300 border border-blue-800/60 text-[10px] font-semibold px-2 py-0.5 rounded-full">
                     Gemini AI
                   </span>
@@ -271,7 +271,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce"></div>
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></div>
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce [animation-delay:0.4s]"></div>
-                <span>Awlo Gemini AI is typing...</span>
+                <span>EthioBest Gemini AI is typing...</span>
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -312,7 +312,7 @@ export const ChatWidget: React.FC<ChatWidgetProps> = ({
               <input
                 ref={inputRef}
                 type="text"
-                placeholder="Ask Awlo about properties, prices, tours..."
+                placeholder="Ask EthioBest about properties, prices, tours..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={loading}

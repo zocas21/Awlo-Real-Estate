@@ -73,7 +73,7 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
               {property.status}
             </span>
             <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
-              ID: AWLO-{property.id.toUpperCase()}
+              ID: ETHIOBEST-{property.id.toUpperCase()}
             </span>
           </div>
 
@@ -124,7 +124,7 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-100">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">
-                <span>Awlo Luxury Portfolio</span>
+                <span>EthioBest Luxury Portfolio</span>
                 <span>•</span>
                 <span>{property.tag}</span>
               </div>
@@ -284,7 +284,7 @@ export const PropertyDetailModal: React.FC<PropertyDetailModalProps> = ({
                   </a>
 
                   <a
-                    href={`https://wa.me/${AWLO_CONTACT_INFO.whatsappClean}?text=Hello%20Awlo%20Real%20Estate,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}`}
+                    href={`https://wa.me/${AWLO_CONTACT_INFO.whatsappClean}?text=Hello%20EthioBest%20Real%20Estate,%20I%20am%20interested%20in%20${encodeURIComponent(property.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full rounded-full bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 font-semibold text-xs transition-colors flex items-center justify-center gap-2"

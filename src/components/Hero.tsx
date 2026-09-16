@@ -27,12 +27,12 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section className="relative bg-[#0A1128] text-white py-16 sm:py-24 border-b border-slate-900 overflow-hidden">
-      {/* Subtle grid/dot pattern overlay */}
-      <div className="absolute inset-0 bg-grid-pattern-dark pointer-events-none opacity-90" />
+    <section className="relative bg-white text-slate-900 py-16 sm:py-24 border-b border-slate-200 overflow-hidden">
+      {/* Subtle light grid pattern background */}
+      <div className="absolute inset-0 bg-grid-pattern-light pointer-events-none opacity-60" />
 
-      {/* Subtle blue accent glow behind hero content */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Soft blue glow accent */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
@@ -40,22 +40,22 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="max-w-3xl space-y-6">
           
           {/* Small rounded pill badge above section headline */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-blue-950/80 text-blue-400 border border-blue-800/60 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-blue-50 text-blue-700 border border-blue-200 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
             <span>PREMIER REAL ESTATE IN ADDIS ABABA</span>
           </div>
 
-          {/* Bold white headline text with ONE word highlighted in blue */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-white">
-            Find Your Dream <span className="text-blue-500">Property</span> in Addis Ababa
+          {/* Bold dark headline text with ONE word highlighted in blue */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] text-slate-900">
+            Find Your Dream <span className="text-blue-600">Property</span> in Addis Ababa
           </h1>
 
-          {/* Light gray subtext */}
-          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
+          {/* Gray subtext */}
+          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl">
             Discover verified luxury apartments, penthouses, and commercial developments across Bole, CMC, Sarbet, Summit, and Ayat with guaranteed 100% legal title deeds.
           </p>
 
-          {/* Rounded pill-shaped filter tags/badges with icons */}
+          {/* Rounded pill-shaped filter tags/badges suited for white background */}
           <div className="flex flex-wrap items-center gap-2 pt-1">
             <button
               type="button"
@@ -63,9 +63,9 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('neighborhood', 'Bole');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-all"
             >
-              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <MapPin className="w-3.5 h-3.5 text-blue-600" />
               <span>Bole</span>
             </button>
 
@@ -75,9 +75,9 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('neighborhood', 'CMC');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-all"
             >
-              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <MapPin className="w-3.5 h-3.5 text-blue-600" />
               <span>CMC</span>
             </button>
 
@@ -87,9 +87,9 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('neighborhood', 'Sarbet');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-all"
             >
-              <MapPin className="w-3.5 h-3.5 text-blue-400" />
+              <MapPin className="w-3.5 h-3.5 text-blue-600" />
               <span>Sarbet</span>
             </button>
 
@@ -99,9 +99,9 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('propertyType', 'Apartment');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-all"
             >
-              <Home className="w-3.5 h-3.5 text-blue-400" />
+              <Home className="w-3.5 h-3.5 text-blue-600" />
               <span>Apartments</span>
             </button>
 
@@ -111,9 +111,9 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('propertyType', 'Commercial');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-all"
             >
-              <Building className="w-3.5 h-3.5 text-blue-400" />
+              <Building className="w-3.5 h-3.5 text-blue-600" />
               <span>Commercial</span>
             </button>
 
@@ -123,19 +123,19 @@ export const Hero: React.FC<HeroProps> = ({
                 handleInputChange('status', 'Ready');
                 onSearchSubmit();
               }}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-amber-300 border border-slate-700/80 text-xs font-medium transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-medium transition-all"
             >
-              <Check className="w-3.5 h-3.5 text-amber-400" />
+              <Check className="w-3.5 h-3.5 text-amber-600" />
               <span>Ready for Move-In</span>
             </button>
           </div>
 
-          {/* Action Buttons: Solid blue rounded pill primary button + outline rounded pill secondary button */}
+          {/* Action Buttons: Solid blue rounded pill primary button + outline rounded pill secondary button on white */}
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
               type="button"
               onClick={onExploreProjects}
-              className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 shadow-sm transition-all flex items-center gap-2"
+              className="rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-6 py-3 shadow-md shadow-blue-600/20 hover:shadow-lg transition-all flex items-center gap-2"
             >
               <span>Explore Available Listings</span>
               <ArrowRight className="w-4 h-4" />
@@ -144,16 +144,16 @@ export const Hero: React.FC<HeroProps> = ({
             <button
               type="button"
               onClick={onBookTour}
-              className="rounded-full border border-slate-600 hover:border-blue-400 text-slate-200 hover:text-white hover:bg-slate-800/60 font-semibold text-sm px-6 py-3 transition-all flex items-center gap-2"
+              className="rounded-full border-2 border-slate-300 hover:border-blue-600 text-slate-800 hover:text-blue-600 hover:bg-blue-50/60 font-semibold text-sm px-6 py-3 transition-all flex items-center gap-2"
             >
-              <Calendar className="w-4 h-4 text-blue-400" />
+              <Calendar className="w-4 h-4 text-blue-600" />
               <span>Book VIP Site Tour</span>
             </button>
           </div>
         </div>
 
         {/* Clean Hero Search Card: White rounded card with soft shadows */}
-        <div className="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200/90 shadow-md text-slate-900 max-w-5xl">
+        <div className="bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-xl shadow-slate-200/50 text-slate-900 max-w-5xl">
           <form onSubmit={handleFormSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
             
             {/* Location Filter */}

@@ -24,11 +24,11 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
             <button
               onClick={() => handleNav('home')}
               className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md transition-transform hover:opacity-95 active:scale-[0.99]"
-              aria-label="Awlo Real Estate"
+              aria-label="EthioBest Real Estate"
             >
               <img
-                src="https://i.postimg.cc/tRtfTN6S/IMG-20260910-094745-843-removebg-preview-(1).png"
-                alt="Awlo Real Estate"
+                src="https://i.postimg.cc/6QRMkh9s/IMG-20260910-094745-843-modified.png"
+                alt="EthioBest Real Estate"
                 className="h-[65px] sm:h-[85px] md:h-[105px] lg:h-[120px] xl:h-[132px] w-auto max-w-[280px] sm:max-w-[360px] lg:max-w-[440px] object-contain bg-transparent select-none drop-shadow-xs"
                 referrerPolicy="no-referrer"
               />
@@ -132,7 +132,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onBookTour }) => {
 
         {/* Bottom Bar with Copyright */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {new Date().getFullYear()} Awlo Real Estate. All rights reserved. Addis Ababa, Ethiopia.</p>
+          <p>© {new Date().getFullYear()} EthioBest Real Estate. All rights reserved. Addis Ababa, Ethiopia.</p>
           <div className="flex items-center space-x-4">
             <button onClick={() => handleNav('faq')} className="hover:text-slate-200 transition-colors">
               Legal Title Guarantee

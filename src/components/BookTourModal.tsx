@@ -73,7 +73,7 @@ export const BookTourModal: React.FC<BookTourModalProps> = ({
             </div>
             <div>
               <h3 className="text-lg font-extrabold text-white">Book a Site Tour</h3>
-              <p className="text-xs text-blue-300 font-medium">Free guided tour of Awlo developments</p>
+              <p className="text-xs text-blue-300 font-medium">Free guided tour of EthioBest developments</p>
             </div>
           </div>
           <button

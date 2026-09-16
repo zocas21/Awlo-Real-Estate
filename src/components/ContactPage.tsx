@@ -43,7 +43,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onLeadSubmitted }) => 
                 HEADQUARTERS MAP
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Awlo Business Center <span className="text-blue-600">Location</span>
+                EthioBest Business Center <span className="text-blue-600">Location</span>
               </h2>
               <p className="text-sm text-slate-600 flex items-center gap-1.5 mt-1">
                 <MapPin className="w-4 h-4 text-purple-600 shrink-0" />
@@ -77,14 +77,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onLeadSubmitted }) => 
           {/* Embedded Google Map Frame */}
           <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-blue-200 shadow-xs bg-slate-100">
             <iframe
-              src="https://maps.google.com/maps?q=Awlo+Business+Center,+Bole,+Addis+Ababa,+Ethiopia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=EthioBest+Real+Estate,+Bole,+Addis+Ababa,+Ethiopia&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Awlo Real Estate Business Center Map"
+              title="EthioBest Real Estate Business Center Map"
               className="w-full h-full"
             />
           </div>

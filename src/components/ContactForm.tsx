@@ -89,10 +89,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
                 Sales Desk
               </span>
               <h3 className="text-2xl font-bold text-white tracking-tight">
-                Awlo Real Estate Office
+                EthioBest Real Estate Office
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Visit our showroom at Awlo Business Center in Bole or reach us anytime via phone, WhatsApp, or Telegram.
+                Visit our showroom at EthioBest Business Center in Bole or reach us anytime via phone, WhatsApp, or Telegram.
               </p>
             </div>
 
@@ -177,7 +177,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ initialPropertyTitle, 
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Thank you for your message!</h3>
                 <p className="text-sm text-slate-600 max-w-sm mx-auto">
-                  An Awlo senior property advisor will reach out to you within 2 business hours via phone or WhatsApp.
+                  An EthioBest senior property advisor will reach out to you within 2 business hours via phone or WhatsApp.
                 </p>
                 <button
                   type="button"

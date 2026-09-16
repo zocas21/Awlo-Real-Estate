@@ -27,8 +27,8 @@ const leadsStore: StoredLead[] = [
     phone: '+251 91 155 4433',
     email: 'abebe.k@example.com',
     subject: '3-Bedroom Unit Inquiry in Bole',
-    message: 'Interested in touring Awlo Bole Horizon Tower this Saturday.',
-    interestedPropertyTitle: 'Awlo Bole Horizon Tower',
+    message: 'Interested in touring EthioBest Bole Horizon Tower this Saturday.',
+    interestedPropertyTitle: 'EthioBest Bole Horizon Tower',
     budgetRange: '25-30M ETB',
     preferredNeighborhood: 'Bole',
     source: 'book_tour',
@@ -36,14 +36,14 @@ const leadsStore: StoredLead[] = [
   }
 ];
 
-const AWLO_SYSTEM_PROMPT = `You are the official AI assistant for this website. Help visitors understand the website, its services, products, courses, features, and information. Answer clearly, naturally, and professionally. Use information available on the website whenever relevant. Never invent information. If you don't know something, honestly say that you don't have enough information.
+const ETHIOBEST_SYSTEM_PROMPT = `You are the official AI assistant for this website. Help visitors understand the website, its services, products, courses, features, and information. Answer clearly, naturally, and professionally. Use information available on the website whenever relevant. Never invent information. If you don't know something, honestly say that you don't have enough information.
 
 Website & Company Profile:
-- Company Name: Awlo Real Estate
+- Company Name: EthioBest Real Estate
 - Tagline: "Find Your Place in Addis Ababa"
 - Location & Head Office: Bole Sub-city, In front of Bole Medhanialem Church, Next to Kenenisa Hotel, Addis Ababa, Ethiopia
 - Phone: +251 92 941 9130
-- Email: awlobc@gmail.com
+- Email: ethiobestestate@gmail.com
 - WhatsApp: +251 92 941 9130
 - Working Hours: Monday–Saturday 09:30–20:00, Sunday 14:00–20:00 (East Africa Time)
 
@@ -104,7 +104,7 @@ async function startServer() {
   app.get("/api/health", (_req, res) => {
     res.json({
       status: "ok",
-      service: "Awlo Real Estate API",
+      service: "EthioBest Real Estate API",
       aiProvider: "Google Gemini API",
       model: "gemini-3.6-flash"
     });
@@ -193,7 +193,7 @@ async function startServer() {
         model: "gemini-3.6-flash",
         contents: contents as any,
         config: {
-          systemInstruction: AWLO_SYSTEM_PROMPT,
+          systemInstruction: ETHIOBEST_SYSTEM_PROMPT,
           temperature: 0.7,
         }
       });
@@ -202,7 +202,7 @@ async function startServer() {
 
       const responseText =
         response.text?.trim() ||
-        "I am here to assist you with finding the right property with Awlo Real Estate in Addis Ababa. How may I help you today?";
+        "I am here to assist you with finding the right property with EthioBest Real Estate in Addis Ababa. How may I help you today?";
 
       // Match property IDs in response to suggest relevant property cards in the UI
       const matchedPropertyIds: string[] = [];
@@ -248,7 +248,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Awlo Real Estate server listening at http://localhost:${PORT}`);
+    console.log(`EthioBest Real Estate server listening at http://localhost:${PORT}`);
   });
 }
 

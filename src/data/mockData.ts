@@ -2,8 +2,8 @@ import { Property, FAQItem } from '../types';
 
 export const SAMPLE_PROPERTIES: Property[] = [
   {
-    id: 'awlo-bole-horizon',
-    title: 'Awlo Bole Horizon Tower',
+    id: 'ethiobest-bole-horizon',
+    title: 'EthioBest Bole Horizon Tower',
     neighborhood: 'Bole',
     address: 'Near Atlas Traffic Light, Bole Road, Addis Ababa',
     priceETB: 28500000,
@@ -16,7 +16,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Ready',
     tag: 'Just Listed',
     description: 'Ultra-luxurious 3-bedroom apartment in the heart of Bole diplomatic district with panoramic city views.',
-    detailedDescription: 'Awlo Bole Horizon Tower offers an exceptional living experience in Addis Ababa’s premier business and diplomatic hub. This flagship residential unit features expansive open-plan living, Italian-imported ceramic flooring, custom kitchen cabinetry, master bedroom suite with walk-in closet, private balcony facing the Bole skyline, 24/7 security with smart access, dedicated underground parking, high-speed Otis elevators, and full backup generator power.',
+    detailedDescription: 'EthioBest Bole Horizon Tower offers an exceptional living experience in Addis Ababa’s premier business and diplomatic hub. This flagship residential unit features expansive open-plan living, Italian-imported ceramic flooring, custom kitchen cabinetry, master bedroom suite with walk-in closet, private balcony facing the Bole skyline, 24/7 security with smart access, dedicated underground parking, high-speed Otis elevators, and full backup generator power.',
     images: [
       'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
@@ -39,8 +39,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 8.9984, lng: 38.7845 }
   },
   {
-    id: 'awlo-cmc-grand-estate',
-    title: 'Awlo Grand Garden Estate',
+    id: 'ethiobest-cmc-grand-estate',
+    title: 'EthioBest Grand Garden Estate',
     neighborhood: 'CMC',
     address: 'Opposite St. Michael Church, CMC Road, Addis Ababa',
     priceETB: 38000000,
@@ -53,7 +53,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Ready',
     tag: 'Penthouse',
     description: 'Spacious 4-bedroom executive penthouse featuring a private rooftop terrace, lush green landscaping, and family amenities.',
-    detailedDescription: 'Situated in the quiet, prestigious CMC area, Awlo Grand Garden Estate combines urban luxury with suburban tranquility. The penthouse residence features floor-to-ceiling double-glazed windows, a state-of-the-art chef’s kitchen, maid quarters with private bathroom, solar water heating systems, and direct elevator keycard entry. Residents enjoy access to landscaped gardens, a children’s playground, and 24-hour estate management.',
+    detailedDescription: 'Situated in the quiet, prestigious CMC area, EthioBest Grand Garden Estate combines urban luxury with suburban tranquility. The penthouse residence features floor-to-ceiling double-glazed windows, a state-of-the-art chef’s kitchen, maid quarters with private bathroom, solar water heating systems, and direct elevator keycard entry. Residents enjoy access to landscaped gardens, a children’s playground, and 24-hour estate management.',
     images: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80',
@@ -76,8 +76,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 9.0215, lng: 38.8340 }
   },
   {
-    id: 'awlo-sarbet-royal-heights',
-    title: 'Awlo Sarbet Royal Heights',
+    id: 'ethiobest-sarbet-royal-heights',
+    title: 'EthioBest Sarbet Royal Heights',
     neighborhood: 'Sarbet',
     address: 'Near African Union Headquarters & Old Airport, Sarbet, Addis Ababa',
     priceETB: 19800000,
@@ -90,7 +90,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Ready',
     tag: 'Featured',
     description: 'Modern 2-bedroom luxury residence located in the high-demand Sarbet diplomatic corridor.',
-    detailedDescription: 'Awlo Sarbet Royal Heights offers premium city living just minutes from the African Union Headquarters, ICS Addis, and Old Airport commercial hubs. Designed with eco-conscious materials and high architectural standards, this 2-bedroom home includes an ensuite master bedroom, open-concept dining area, modern bathroom fixtures, secure basement parking, and complete backup power and water infrastructure.',
+    detailedDescription: 'EthioBest Sarbet Royal Heights offers premium city living just minutes from the African Union Headquarters, ICS Addis, and Old Airport commercial hubs. Designed with eco-conscious materials and high architectural standards, this 2-bedroom home includes an ensuite master bedroom, open-concept dining area, modern bathroom fixtures, secure basement parking, and complete backup power and water infrastructure.',
     images: [
       'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
@@ -110,8 +110,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 8.9912, lng: 38.7390 }
   },
   {
-    id: 'awlo-summit-pinnacle',
-    title: 'Awlo Summit Pinnacle Plaza',
+    id: 'ethiobest-summit-pinnacle',
+    title: 'EthioBest Summit Pinnacle Plaza',
     neighborhood: 'Summit',
     address: 'Near Pepsi Factory & Safari Link, Summit, Addis Ababa',
     priceETB: 16500000,
@@ -124,7 +124,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Under Construction',
     tag: 'Hot Deal',
     description: 'Contemporary 3-bedroom residence under construction with flexible milestone payment options.',
-    detailedDescription: 'Awlo Summit Pinnacle Plaza is an upcoming landmark residential project in Summit, one of Addis Ababa’s fastest growing real estate hubs. Buyers benefit from early-bird investment pricing with a 20% initial deposit and balanced installment plans spread over 24 months. Expected handover in December 2026 with guaranteed title deeds and premium finishing choices.',
+    detailedDescription: 'EthioBest Summit Pinnacle Plaza is an upcoming landmark residential project in Summit, one of Addis Ababa’s fastest growing real estate hubs. Buyers benefit from early-bird investment pricing with a 20% initial deposit and balanced installment plans spread over 24 months. Expected handover in December 2026 with guaranteed title deeds and premium finishing choices.',
     images: [
       'https://images.unsplash.com/photo-1567496898669-ee935f5f647a?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=1200&q=80',
@@ -144,8 +144,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 9.0320, lng: 38.8650 }
   },
   {
-    id: 'awlo-ayat-harmony',
-    title: 'Awlo Ayat Harmony Residences',
+    id: 'ethiobest-ayat-harmony',
+    title: 'EthioBest Ayat Harmony Residences',
     neighborhood: 'Ayat',
     address: 'Near Zone 2 Light Rail Terminal, Ayat, Addis Ababa',
     priceETB: 13900000,
@@ -158,7 +158,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Ready',
     tag: 'New Release',
     description: 'Charming 2-bedroom home in Ayat with direct access to the Light Rail transit network.',
-    detailedDescription: 'Perfect for families and urban commuters, Awlo Ayat Harmony Residences offers comfortable and affordable apartment living. Located near the Ayat Light Rail terminal, the building features bright, well-ventilated rooms, built-in wardrobes, granite kitchen countertops, robust security, and dedicated maintenance staff.',
+    detailedDescription: 'Perfect for families and urban commuters, EthioBest Ayat Harmony Residences offers comfortable and affordable apartment living. Located near the Ayat Light Rail terminal, the building features bright, well-ventilated rooms, built-in wardrobes, granite kitchen countertops, robust security, and dedicated maintenance staff.',
     images: [
       'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1200&q=80',
@@ -177,8 +177,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 9.0410, lng: 38.8820 }
   },
   {
-    id: 'awlo-bole-arabsa-flats',
-    title: 'Awlo Bole Arabsa Eco-Flats',
+    id: 'ethiobest-bole-arabsa-flats',
+    title: 'EthioBest Bole Arabsa Eco-Flats',
     neighborhood: 'Bole Arabsa',
     address: 'Ring Road Extension Corridor, Bole Arabsa, Addis Ababa',
     priceETB: 11500000,
@@ -191,7 +191,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Ready',
     tag: 'Hot Deal',
     description: 'Value-packed 3-bedroom apartment with high rental yield potential and clean green surrounds.',
-    detailedDescription: 'Awlo Bole Arabsa Eco-Flats offers unmatched affordability for a spacious 3-bedroom apartment in Addis Ababa. Featuring modern architectural design, large window openings, separate laundry space, secure parking, and clean mountain breeze environment.',
+    detailedDescription: 'EthioBest Bole Arabsa Eco-Flats offers unmatched affordability for a spacious 3-bedroom apartment in Addis Ababa. Featuring modern architectural design, large window openings, separate laundry space, secure parking, and clean mountain breeze environment.',
     images: [
       'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1200&q=80',
@@ -210,8 +210,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 8.9750, lng: 38.8450 }
   },
   {
-    id: 'awlo-gerji-business-hub',
-    title: 'Awlo Gerji Business & Commercial Hub',
+    id: 'ethiobest-gerji-business-hub',
+    title: 'EthioBest Gerji Business & Commercial Hub',
     neighborhood: 'Gerji',
     address: 'Near Imperial Roundabout & Jackros Road, Gerji, Addis Ababa',
     priceETB: 34000000,
@@ -244,8 +244,8 @@ export const SAMPLE_PROPERTIES: Property[] = [
     mapCoordinates: { lat: 9.0060, lng: 38.8020 }
   },
   {
-    id: 'awlo-lebu-heights-vista',
-    title: 'Awlo Lebu Heights Vista',
+    id: 'ethiobest-lebu-heights-vista',
+    title: 'EthioBest Lebu Heights Vista',
     neighborhood: 'Lebu',
     address: 'Near Varnero / Music Sefer Junction, Lebu, Addis Ababa',
     priceETB: 24200000,
@@ -258,7 +258,7 @@ export const SAMPLE_PROPERTIES: Property[] = [
     status: 'Under Construction',
     tag: 'New Release',
     description: 'Elevated 4-bedroom duplex apartment offering sweeping sunset views over the Entoto mountain ridge and southern Addis.',
-    detailedDescription: 'Awlo Lebu Heights Vista combines luxurious residential living with integrated ground-level retail conveniences. Featuring 4 generous bedrooms, a modern open kitchen, high-grade acoustic insulation, private balcony off the master bedroom, and flexible milestone payments over 18 months.',
+    detailedDescription: 'EthioBest Lebu Heights Vista combines luxurious residential living with integrated ground-level retail conveniences. Featuring 4 generous bedrooms, a modern open kitchen, high-grade acoustic insulation, private balcony off the master bedroom, and flexible milestone payments over 18 months.',
     images: [
       'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80',
@@ -294,19 +294,19 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-3',
     question: 'Do you sell both residential and commercial properties?',
-    answer: 'Yes! Awlo Real Estate specializes in high-end residential apartments, luxury penthouses, mixed-use commercial showrooms, and corporate office spaces designed to international safety and quality standards.',
+    answer: 'Yes! EthioBest Real Estate specializes in high-end residential apartments, luxury penthouses, mixed-use commercial showrooms, and corporate office spaces designed to international safety and quality standards.',
     category: 'process'
   },
   {
     id: 'faq-4',
     question: 'Do listings come with legal ownership documents?',
-    answer: 'Absolutely. Every Awlo property purchase includes full authentic legal documentation: title deeds (Sertifikat/Karta), municipality site plans, sales contracts notarized by the Addis Ababa Document Authentication Office, and clear ownership transfers.',
+    answer: 'Absolutely. Every EthioBest property purchase includes full authentic legal documentation: title deeds (Sertifikat/Karta), municipality site plans, sales contracts notarized by the Addis Ababa Document Authentication Office, and clear ownership transfers.',
     category: 'legal'
   },
   {
     id: 'faq-5',
     question: 'Can I get construction progress updates after purchase?',
-    answer: 'Yes! Awlo clients receive access to regular construction progress updates with HD photo and video walkthroughs, site inspection appointments, and dedicated personal project manager consultations.',
+    answer: 'Yes! EthioBest clients receive access to regular construction progress updates with HD photo and video walkthroughs, site inspection appointments, and dedicated personal project manager consultations.',
     category: 'process'
   },
   {
@@ -318,13 +318,13 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     id: 'faq-7',
     question: 'What are your working hours?',
-    answer: 'Our office hours are Monday through Saturday 09:30–20:00, and Sunday 14:00–20:00 (East Africa Time). Our website and AI assistant "Awlo" are available 24/7.',
+    answer: 'Our office hours are Monday through Saturday 09:30–20:00, and Sunday 14:00–20:00 (East Africa Time). Our website and AI assistant "EthioBest" are available 24/7.',
     category: 'process'
   },
   {
     id: 'faq-8',
     question: 'Can I visit a site before buying?',
-    answer: 'Yes! We welcome all prospective buyers to tour our developments. You can book a free guided VIP site tour directly on our website, through our AI assistant "Awlo", or by contacting our team at +251 92 941 9130 or awlobc@gmail.com.',
+    answer: 'Yes! We welcome all prospective buyers to tour our developments. You can book a free guided VIP site tour directly on our website, through our AI assistant "EthioBest", or by contacting our team at +251 92 941 9130 or ethiobestestate@gmail.com.',
     category: 'process'
   }
 ];
@@ -332,7 +332,7 @@ export const FAQ_ITEMS: FAQItem[] = [
 export const DELIVERED_PROJECTS = [
   {
     id: 'del-1',
-    name: 'Awlo Bole Pearl Tower',
+    name: 'EthioBest Bole Pearl Tower',
     location: 'Bole, Addis Ababa',
     units: 48,
     deliveredYear: '2023',
@@ -341,7 +341,7 @@ export const DELIVERED_PROJECTS = [
   },
   {
     id: 'del-2',
-    name: 'Awlo Kazanchis Business Center',
+    name: 'EthioBest Kazanchis Business Center',
     location: 'Kazanchis, Addis Ababa',
     units: 32,
     deliveredYear: '2024',
@@ -350,7 +350,7 @@ export const DELIVERED_PROJECTS = [
   },
   {
     id: 'del-3',
-    name: 'Awlo Old Airport Villa Park',
+    name: 'EthioBest Old Airport Villa Park',
     location: 'Sarbet / Old Airport, Addis Ababa',
     units: 24,
     deliveredYear: '2022',
@@ -359,7 +359,7 @@ export const DELIVERED_PROJECTS = [
   },
   {
     id: 'del-4',
-    name: 'Awlo CMC Sunridge Heights',
+    name: 'EthioBest CMC Sunridge Heights',
     location: 'CMC, Addis Ababa',
     units: 64,
     deliveredYear: '2025',

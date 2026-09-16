@@ -5,7 +5,7 @@ import { AWLO_CONTACT_INFO } from './SocialLinks';
 export const AboutPage: React.FC = () => {
   const teamMembers = [
     {
-      name: 'Yonas Awlo',
+      name: 'Yonas Tadesse',
       role: 'Founder & Managing Director',
       bio: 'Over 18 years of real estate development leadership in East Africa, pioneering European-grade residential towers across Addis Ababa.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80'
@@ -25,9 +25,9 @@ export const AboutPage: React.FC = () => {
   ];
 
   const milestones = [
-    { year: '2012', title: 'Awlo Founded', desc: 'Established in Addis Ababa with a mission to modernize urban apartment living.' },
+    { year: '2012', title: 'EthioBest Founded', desc: 'Established in Addis Ababa with a mission to modernize urban apartment living.' },
     { year: '2016', title: 'Bole Flagship Delivery', desc: 'Handed over our first luxury residential project in Bole.' },
-    { year: '2020', title: 'Commercial Expansion', desc: 'Launched Awlo Business Hub in Kazanchis & Gerji commercial corridors.' },
+    { year: '2020', title: 'Commercial Expansion', desc: 'Launched EthioBest Business Hub in Kazanchis & Gerji commercial corridors.' },
     { year: '2024', title: '1,000+ Keys Delivered', desc: 'Reached landmark milestone of 1,000 delivered homes with 100% legal title transfers.' },
     { year: '2026', title: 'AI-Powered Advisory', desc: 'Integrated 24/7 AI advisory and client care for local and diaspora buyers.' }
   ];
@@ -39,7 +39,7 @@ export const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-5">
             <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-blue-50 text-blue-600 border border-blue-100 shadow-xs">
-              ABOUT AWLO REAL ESTATE
+              ABOUT ETHIOBEST REAL ESTATE
             </span>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
@@ -47,10 +47,10 @@ export const AboutPage: React.FC = () => {
             </h1>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Founded in 2012, Awlo Real Estate is a trusted developer of high-quality residential apartments, penthouses, and commercial spaces in Addis Ababa, Ethiopia.
+              Founded in 2012, EthioBest Real Estate is a trusted developer of high-quality residential apartments, penthouses, and commercial spaces in Addis Ababa, Ethiopia.
             </p>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Every Awlo project is engineered for long-term durability, equipped with reliable backup power and water infrastructure, and delivered with 100% authentic legal title deeds (Sertifikat/Karta).
+              Every EthioBest project is engineered for long-term durability, equipped with reliable backup power and water infrastructure, and delivered with 100% authentic legal title deeds (Sertifikat/Karta).
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm font-semibold text-slate-800">
@@ -76,11 +76,11 @@ export const AboutPage: React.FC = () => {
           <div className="relative rounded-3xl overflow-hidden aspect-[4/3] bg-slate-100 border border-slate-200 shadow-sm">
             <img
               src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80"
-              alt="Awlo Real Estate Headquarters"
+              alt="EthioBest Real Estate Headquarters"
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 inset-x-0 bg-[#0A1128]/85 backdrop-blur-xs text-white p-5 border-t border-slate-800">
-              <p className="font-bold text-sm">Awlo Real Estate Head Office</p>
+              <p className="font-bold text-sm">EthioBest Real Estate Head Office</p>
               <p className="text-xs text-slate-300 mt-0.5">{AWLO_CONTACT_INFO.address}</p>
             </div>
           </div>
